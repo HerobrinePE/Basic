@@ -2,7 +2,7 @@ const { RichEmbed } = require("discord.js");
 module.exports = {
     name: "stats",
     aliases: ["stat"],
-    category: "info",
+    category: "Info",
     description: "Stats",
     usage: "check server stats",
     run: (client, message, args) => {

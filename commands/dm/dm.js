@@ -1,7 +1,7 @@
 module.exports = {
   name: "dm",
   aliases: ["a"],
-  category: "info",
+  category: "dm",
   description: "dm",
   run: (client, message, args) => {
     

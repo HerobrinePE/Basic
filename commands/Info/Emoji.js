@@ -4,7 +4,7 @@ const rembed = new RichEmbed()
 module.exports = {
 	name: "emoji",
   aliases: ["e"],
-	category: "info",
+	category: "Info",
 	description: "returns user img as emoji",
 	run: (client, message, args)=>{
     message.delete(2000)

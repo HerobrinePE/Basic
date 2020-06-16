@@ -39,7 +39,7 @@ client.on("ready", async function() {
     console.log(Exec);
   }, 10000);
 
-  console.log("online");
+  console.log("online"+client.user.tag);
 });
 client.on("message", message => {
   if (message.content.startsWith("Hello")) {

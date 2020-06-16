@@ -4,7 +4,7 @@ const ms = require("ms");
 module.exports = {
     name: "tmute",
     aliases: ["tm"],
-    category: "moderation",
+    category: "mod",
     description: "Mute",
     usage: "${prefix}mute {time}",
     run: async (cli, message, args) => {

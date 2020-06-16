@@ -1,6 +1,6 @@
 module.exports = {
     name: "rand",
-    category: "info",
+    category: "Info",
     description: "returns a random interger of your number",
     run: async (client, message, args) => {
 let text = args[0]

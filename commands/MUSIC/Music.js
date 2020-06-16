@@ -2,7 +2,7 @@ const ytdl = require("ytdl-core")
 
 module.exports = {
     name: "play",
-    category: "music",
+    category: "MUSIC",
     description: "This is only a beta to see if it works it will only accept urls",
     run: async (client, message, args) => {
        const channel = message.member.voiceChannel;

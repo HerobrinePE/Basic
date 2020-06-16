@@ -3,7 +3,7 @@ const { RichEmbed } = require("discord.js");
 module.exports = {
 	name: "echo",
   aliases: ["announce"],
-	category: "moderation",
+	category: "mod",
 	description: "Message another chat using the bot",
 	run: (client, message, args)=>{
     message.delete(1000)
