@@ -2,7 +2,7 @@ const { RichEmbed } = require("discord.js");
 module.exports = {
   name: "report",
   aliases: ["rep"],
-  category: "moderation",
+  category: "mod",
   description: "Reports someone",
   usage: "${prefix}report @{mention} {reason}",
   run: (cli, message, args) => {

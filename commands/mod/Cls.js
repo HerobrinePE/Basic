@@ -1,7 +1,7 @@
 module.exports = {
     name: "clear",
     aliases: ["cls", "purge"],
-    category: "moderation",
+    category: "mod",
     description: "Bulk deletes",
     usage: "${prefix}clear {amount}",
     run: (cli, message, args) => {

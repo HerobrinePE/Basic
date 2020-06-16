@@ -4,7 +4,7 @@ let embed = new RichEmbed();
 module.exports = {
   name: "avatar",
   aliases: ["a"],
-  category: "info",
+  category: "Info",
   description: "returns an avatar picture",
   run: (client, message, args) => {
   let usr = message.mentions.users.first()
