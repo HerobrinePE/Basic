@@ -110,4 +110,4 @@ client.on("message", message => {
     })
   }
 })
-client.login(process.env.LTOKEN)
+client.login(process.env.TOKEN)
