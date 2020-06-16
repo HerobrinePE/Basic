@@ -1,5 +1,4 @@
 const { Client, Collection, RichEmbed } = require("discord.js");
-const server = require('./server.js')
 const fs = require("fs")
     const prefix = process.env.PREFIX;
 require("events").EventEmitter.defaultMaxListeners = 100;
