@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "For Rainbow Steve",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
   "author": "HerobrinePE#2365",
   "license": "ISC",
   "dependencies": {
