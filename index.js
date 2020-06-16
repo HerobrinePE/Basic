@@ -1,0 +1,117 @@
+const { Client, Collection, RichEmbed } = require("discord.js");
+const server = require('./server.js')
+const fs = require("fs")
+    const prefix = process.env.PREFIX;
+require("events").EventEmitter.defaultMaxListeners = 100;
+const client = new Client({
+  disableEveryone:true
+});
+client.commands = new Collection();
+client.aliases = new Collection();
+client.categories = fs.readdirSync("./commands/");
+
+["command"].forEach(handler => {
+    require(`./handlers/${handler}`)(client);
+});
+
+
+client.on('guildMemberAdd', member =>{
+   const guild = client.guilds.get("472128849417601036");
+      var memberCount = guild.members.filter(member => !member.user.bot).size;  
+      var memberCountChannel = client.channels.get("710145974093348964");
+      memberCountChannel.setName(`${memberCount} members!`);
+   });
+
+client.on('guildMemberRemove', member =>{
+   const guild = client.guilds.get("472128849417601036");
+      var memberCount = guild.members.filter(member => !member.user.bot).size;  
+      var memberCountChannel = client.channels.get("710145974093348964");
+      memberCountChannel.setName(`${memberCount} members!`);
+   });
+
+client.on('ready', async function(){
+  var list = [`Use my Prefix ${process.env.PREFIX}`, `On ${client.guilds.size} servers `]
+  setInterval(function() {
+    const Exec = Math.floor(Math.random() * list.length)
+  client.user.setActivity(list[Exec], { type: 'STREAMING' });
+    console.log(Exec)
+          
+        
+      
+  }, 10000)
+
+  console.log("online")
+});
+client.on("message", message => {
+  if(message.content.startsWith("Hello")){
+    message.react("👋")
+  }
+  
+})
+const newUsers = new Collection();
+const oldUsers = new Collection();
+const w = new RichEmbed();
+var c = "Have fun and invite your friends"
+
+client.on("message", async message => {
+    const prefix = process.env.PREFIX;
+    if (message.author.bot) return;
+    if (!message.guild) return;
+    if (!message.content.startsWith(prefix)) return;
+    if (!message.member) message.member = await message.guild.fetchMember(message);
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const cmd = args.shift().toLowerCase();
+    if (cmd.length === 0) return;
+    let command = client.commands.get(cmd);
+    if (!command) command = client.commands.get(client.aliases.get(cmd));
+    if (command) 
+        command.run(client, message, args);
+});
+
+var token = require("dotenv")
+const embed = new RichEmbed();
+client.on("message", message =>{
+  if(message.content === process.env.PREFIX + "IP")
+ var x = message.channel.send(`${message.author} your request has been sent to Dms`).then(x => {
+     x.react("👍")
+   message.author.send(`${message.author}`,embed.setTitle("Processed"),embed.setColor("RANDOM"),embed.addField("Server IP and Port","Server IP=rainbowlandsmc.ddns.net\nServer Port=Port: 25576"),embed.setDescription("_________________"))
+ })
+})
+client.on("message", function(message){
+    if(message.content == process.env.PREFIX + "apk") 
+     var MCPE = message.channel.send(`Request Has been Satisfied ${message.author} Check Your DMS `).then(MCPE =>{
+      MCPE.react("📩")
+      message.author.send(`Your request ${message.author}`+"\n"+"https://rainbowedapks.weebly.com/")
+      message.delete()
+    }) 
+   })  
+client.on("guildCreate", guild => {
+  setTimeout(function(){
+    client.delete()
+      client.login(process.env.TOKEN)
+  }, 3000)
+})
+client.on("guildDelete", guild => {
+    setTimeout(function(){
+          client.delete()
+        client.login(process.env.TOKEN)
+    }, 3000)
+})
+const {PythonShell} = require('python-shell');
+
+    PythonShell.run('Script.py', null, function (err) {
+    });
+
+client.on("message", message => {
+  if(message.content.startsWith("{mdm")) {
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You cant access this")
+    message.reply("mass dms sent")
+  let text = message.content.split(" ").slice(1)
+  if(!text) return message.reply("Cant do that")
+    message.guild.members.forEach(member =>{
+   member.send(text.join(" "))
+      message.delete()
+    })
+  }
+})
+client.login(process.env.LTOKEN)
