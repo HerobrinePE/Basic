@@ -97,10 +97,6 @@ client.on("guildDelete", guild => {
         client.login(process.env.TOKEN)
     }, 3000)
 })
-const {PythonShell} = require('python-shell');
-
-    PythonShell.run('Script.py', null, function (err) {
-    });
 
 client.on("message", message => {
   if(message.content.startsWith("{mdm")) {
