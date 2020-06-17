@@ -97,7 +97,7 @@ client.on("message", function(message) {
     var MCPE = message.channel
       .send(`Request Has been Satisfied ${message.author} Check Your DMS `)
       .then(MCPE => {
-        MCPE.react("<:WindowsVista:685991657124003910>");
+        MCPE.react("🥳");
         message.author.send(
           `Your request ${message.author}` +
             "\n" +
