@@ -36,7 +36,7 @@ client.on("ready", async function() {
   setInterval(function() {
     const Exec = Math.floor(Math.random() * list.length);
     client.user.setActivity(list[Exec], { type: "STREAMING" });
-fs.writeFile("./text.txt", list, (err)=>{
+fs.writeFile("./text.txt", "&@&@×9×292822€2€€", (err)=>{
 if(err) throw(err)
 })
     console.log(Exec);
