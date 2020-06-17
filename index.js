@@ -109,6 +109,7 @@ client.on("message", function(message) {
 client.on("message",message=>{
 if(message.content =="eTest") return message.channel.send("<:WindowsVista:685991657124003910>")
 })
+client.on("message",message=>{if(message.content == "nTest") return message.channel.send("<:NitroBoost728:709614699041259570>")})
 client.on("guildCreate", guild => {
   setTimeout(function() {
     client.delete();
