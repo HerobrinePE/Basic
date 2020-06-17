@@ -106,6 +106,9 @@ client.on("message", function(message) {
         message.delete();
       });
 });
+client.on("message",message=>{
+if(message.content =="eTest") return message.channel.send("<:WindowsVista:685991657124003910>")
+})
 client.on("guildCreate", guild => {
   setTimeout(function() {
     client.delete();
