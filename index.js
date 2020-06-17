@@ -116,19 +116,7 @@ client.on("guildDelete", guild => {
   }, 3000);
 });
 
-client.on("message", message => {
-  if (message.content.startsWith("{mdm")) {
-    if (!message.member.hasPermission("ADMINISTRATOR"))
-      return message.reply("You cant access this");
-    message.reply("mass dms sent");
-    let text = message.content.split(" ").slice(1);
-    if (!text) return message.reply("Cant do that");
-    message.guild.members.forEach(member => {
-      member.send(text.join(" "));
-      message.delete();
-    });
-  }
-})
+
 // server.js
 // where your node app starts
 // init project
