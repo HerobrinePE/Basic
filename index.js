@@ -101,20 +101,12 @@ client.on("message", function(message) {
         message.author.send(
           `Your request ${message.author}` +
             "\n" +
-            "https://rainbowedapks.weebly.com/"
+            "https://rainbowedapks.weebly.com/  <a:NitroBoost728:709614699041259570>""<a:Fire:514567641449627648>
+"
         );
         message.delete();
       });
 });
-client.on("message",message=>{
-if(message.content == "+em")
-message.channel.send( "<a:NitroBoost728:709614699041259570>", "<a:Fire:514567641449627648>")
-
-})
-client.on("message",message=>{
-if(message.content == "+killswitch")
-message.channel.send("process killed").then(()=>{process.exit(0)})
-})
 
 client.on("guildCreate", guild => {
   setTimeout(function() {
