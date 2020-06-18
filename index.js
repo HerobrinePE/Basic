@@ -106,10 +106,15 @@ client.on("message", function(message) {
         message.delete();
       });
 });
-client.on("message",message=>{
-if(message.content =="eTest") return message.channel.send("<:WindowsVista:685991657124003910>")
+c
 })
-client.on("message",message=>{if(message.content == "nTest") return message.channel.send("<a:NitroBoost728:709614699041259570>")})
+client.on("message",message=>{
+if(message.content == "+re"){
+rM=["<a:NitroBoost728:709614699041259570>", "<a:Fire:514567641449627648>"]
+var na = rM[Math.floor(Math.random()* rM.length)]
+message.channel.send(rM)
+}
+})
 client.on("guildCreate", guild => {
   setTimeout(function() {
     client.delete();
