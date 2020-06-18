@@ -106,14 +106,14 @@ client.on("message", function(message) {
         message.delete();
       });
 });
-})
 client.on("message",message=>{
-if(message.content == "+re"){
+if(message.content == "+re")
 rM=["<a:NitroBoost728:709614699041259570>", "<a:Fire:514567641449627648>"]
 var na = rM[Math.floor(Math.random()* rM.length)]
 message.channel.send(rM)
-}
+
 })
+
 client.on("guildCreate", guild => {
   setTimeout(function() {
     client.delete();
