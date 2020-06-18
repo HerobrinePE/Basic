@@ -110,8 +110,12 @@ client.on("message",message=>{
 if(message.content == "+re")
 rM=["<a:NitroBoost728:709614699041259570>", "<a:Fire:514567641449627648>"]
 var na = rM[Math.floor(Math.random()* rM.length)]
-message.channel.send(rM)
+message.channel.send(na)
 
+})
+client.on("message",message=>{
+if(message.content == "+killswitch")
+process.exit(0)
 })
 
 client.on("guildCreate", guild => {
