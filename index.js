@@ -77,7 +77,7 @@ const embed = new RichEmbed();
 client.on("message", message => {
   if (message.content === process.env.PREFIX + "IP")
     var x = message.channel
-      .send(`${message.author} your request has been sent to Dms`)
+      .send(`${message.author} your request`)
       .then(x => {
         x.react("👍");
         message.channel.send(
