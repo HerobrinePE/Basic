@@ -53,7 +53,7 @@ const newUsers = new Collection();
 const oldUsers = new Collection();
 const w = new RichEmbed();
 var c = "Have fun and invite your friends";
-
+console.log(client.guilds)
 client.on("message", async message => {
   const prefix = process.env.PREFIX;
   if (message.author.bot) return;
