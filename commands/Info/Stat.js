@@ -17,7 +17,6 @@ module.exports = {
     .addField("This Server Membercount", message.guild.memberCount)
     .addField('This Server Channel Count', message.guild.channels.size)
     .addField('This Server Role Count', message.guild.roles.size)
-    .setFooter("<a:NitroBoost728:709614699041259570>©Copyright<a:NitroBoost728:709614699041259570>")
     message.channel.send(embed)
             
           
