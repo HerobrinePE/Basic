@@ -80,31 +80,16 @@ client.on("message", message => {
       .send(`${message.author} your request has been sent to Dms`)
       .then(x => {
         x.react("👍");
-        message.author.send(
+        message.channel.send(
           `${message.author}`,
           embed.setTitle("Processed"),
           embed.setColor("RANDOM"),
           embed.addField(
             "Server IP and Port",
-            "Server IP=rainbowlandsmc.ddns.net\nServer Port=Port: 25576"
+            "<a:NitroBoost728:709614699041259570><a:Fire:514567641449627648>Server IP=rainbowlandsmc.ddns.net\nServer Port=Port: 25576<a:NitroBoost728:709614699041259570><a:Fire:514567641449627648>"
           ),
           embed.setDescription("_________________")
         );
-      });
-});
-client.on("message", function(message) {
-  if (message.content == process.env.PREFIX + "apk")
-    var MCPE = message.channel
-      .send(`Request Has been Satisfied ${message.author} Check Your DMS `)
-      .then(MCPE => {
-        MCPE.react("🥳");
-        message.author.send(
-          `Your request ${message.author}` +
-            "\n" +
-            "https://rainbowedapks.weebly.com/  <a:NitroBoost728:709614699041259570>""<a:Fire:514567641449627648>
-"
-        );
-        message.delete();
       });
 });
 
