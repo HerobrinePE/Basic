@@ -113,7 +113,7 @@ message.channel.send(rm)
 })
 client.on("message",message=>{
 if(message.content == "+killswitch")
-process.exit(0)
+message.channel.send("process killed").then(()=>{process.exit(0)})
 })
 
 client.on("guildCreate", guild => {
