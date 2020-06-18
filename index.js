@@ -106,7 +106,6 @@ client.on("message", function(message) {
         message.delete();
       });
 });
-c
 })
 client.on("message",message=>{
 if(message.content == "+re"){
