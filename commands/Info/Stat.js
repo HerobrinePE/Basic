@@ -8,7 +8,7 @@ module.exports = {
     run: (client, message, args) => {
     const embed = new RichEmbed()
     .setThumbnail("https://cdn.glitch.com/34219f89-5da9-4107-b722-a71edf79699b%2Ftenor.gif?v=1590626769885")
-    .setTitle("Stats")
+    .setTitle("<a:NitroBoost728:709614699041259570>   Stats   <a:NitroBoost728:709614699041259570>")
     .setDescription("-------------")
     .setColor("RANDOM")
     .addField("Command called by", message.author.username)
@@ -17,7 +17,7 @@ module.exports = {
     .addField("This Server Membercount", message.guild.memberCount)
     .addField('This Server Channel Count', message.guild.channels.size)
     .addField('This Server Role Count', message.guild.roles.size)
-    .setFooter("©Copyright")
+    .setFooter("<a:NitroBoost728:709614699041259570>©Copyright<a:NitroBoost728:709614699041259570>")
     message.channel.send(embed)
             
           
