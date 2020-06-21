@@ -31,14 +31,12 @@ client.on("guildMemberRemove", member => {
 client.on("ready", async function() {
   var list = [
     `Use my Prefix ${process.env.PREFIX}`,
-    `On ${client.guilds.size} servers `
+    `On ${client.guilds.size} servers `,
+`A Cloud Partner`
   ];
   setInterval(function() {
     const Exec = Math.floor(Math.random() * list.length);
     client.user.setActivity(list[Exec], { type: "STREAMING" });
-fs.writeFile("./text.txt", "&@&@×9×292822€2€€", (err)=>{
-if(err) throw(err)
-})
     console.log(Exec);
   }, 10000);
 
