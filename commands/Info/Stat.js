@@ -18,7 +18,8 @@ module.exports = {
     .addField('This Server Channel Count', message.guild.channels.size)
     .addField('This Server Role Count', message.guild.roles.size)
     .addField("<a:NitroBoost728:709614699041259570> Support by Subbing <a:NitroBoost728:709614699041259570>", "[Subscribe to Rainbowed](https://www.youtube.com/channel/UCGEzUyVKGktUkSkEasBwDeQ)")
-    message.channel.send(embed)
+    .addField("Support By Following", "[Follow Rainbowed on Twitter](https://twitter.com/RainbowStevePE)")
+ message.channel.send(embed)
             
           
         }
