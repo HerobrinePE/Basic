@@ -17,6 +17,7 @@ module.exports = {
     .addField("This Server Membercount", message.guild.memberCount)
     .addField('This Server Channel Count', message.guild.channels.size)
     .addField('This Server Role Count', message.guild.roles.size)
+    .addField("<a:NitroBoost728:709614699041259570> Support by Subbing <a:NitroBoost728:709614699041259570>", "Subscribe: [link](https://www.youtube.com/channel/UCGEzUyVKGktUkSkEasBwDeQ)")
     message.channel.send(embed)
             
           
