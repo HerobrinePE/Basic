@@ -84,7 +84,7 @@ client.on("message", message => {
           embed.setColor("RANDOM"),
           embed.addField(
             "Server IP and Port",
-            "<a:NitroBoost728:709614699041259570><a:Fire:514567641449627648>Server IP=rainbowlandsmc.ddns.net\nServer Port=Port: 25576<a:NitroBoost728:709614699041259570><a:Fire:514567641449627648>"
+            "<a:NitroBoost728:709614699041259570><a:Fire:514567641449627648>     Server IP=rainbowevents.us.to     \nServer Port=Port: 25565     <a:NitroBoost728:709614699041259570><a:Fire:514567641449627648>"
           ),
           embed.setDescription("_________________")
         );
