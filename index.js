@@ -1,6 +1,5 @@
 const { Client, Collection, RichEmbed } = require("discord.js");
 const fs = require("fs");
-let prefix= "+"
 require("events").EventEmitter.defaultMaxListeners = 100;
 const client = new Client({
   disableEveryone: true
@@ -42,16 +41,6 @@ client.on("ready", async function() {
 
   console.log("online  "+client.user.tag);
 });
-client.on("message", message => {
-  if (message.content.startsWith("Hello")) {
-    message.react("👋");
-  }
-});
-const newUsers = new Collection();
-const oldUsers = new Collection();
-const w = new RichEmbed();
-var c = "Have fun and invite your friends";
-console.log(client.guilds.size)
 client.on("message", async message => {
   const prefix = process.env.PREFIX;
   if (message.author.bot) return;
