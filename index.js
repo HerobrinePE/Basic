@@ -40,7 +40,7 @@ client.on("ready", async function() {
     console.log(Exec);
   }, 10000);
 
-  console.log("online"+client.user.tag);
+  console.log("online  "+client.user.tag);
 });
 client.on("message", message => {
   if (message.content.startsWith("Hello")) {
@@ -51,7 +51,7 @@ const newUsers = new Collection();
 const oldUsers = new Collection();
 const w = new RichEmbed();
 var c = "Have fun and invite your friends";
-console.log(client.guilds)
+console.log(client.guilds.size)
 client.on("message", async message => {
   const prefix = process.env.PREFIX;
   if (message.author.bot) return;
@@ -102,27 +102,4 @@ client.on("guildDelete", guild => {
     client.delete();
     client.login(process.env.TOKEN);
   }, 3000);
-});
-
-
-// server.js
-// where your node app starts
-// init project
-const express = require('express');
-const app = express();
-
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
-
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
-
-// http://expressjs.com/en/starter/basic-routing.html
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/views/index.html');
-});
-
-// listen for requests :)
-const listener = app.listen(process.env.PORT, function() {
-  console.log('Your app is listening on port ' + listener.address().port);
 });
