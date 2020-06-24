@@ -66,31 +66,17 @@ module.exports = {
   warnchannel.send(warnEmbed);
 
 
-  if(warns[wUser.id].warns == 5){
-
-    let muterole = message.guild.roles.find(`name`, "muted");
-
-    if(!muterole) return message.reply("You should create that role dude.");
+  if(warns[wUser.id].warns == 3){
 
 
-    let mutetime = "2h";
+    message.guild.member(wUser).kick(reason)
 
-    await(wUser.addRole(muterole.id));
-
-    message.channel.send(`<@${wUser.id}> has been temporarily muted`);
+    message.channel.send(`<@${wUser.id}> has been kicked`);
 
 
-    setTimeout(function(){
+ 
 
-      wUser.removeRole(muterole.id)
-
-      message.reply(`<@${wUser.id}> has been unmuted.`)
-
-    }, ms(mutetime))
-
-  }
-
-  if(warns[wUser.id].warns == 10){
+  if(warns[wUser.id].warns == 4){
 
     message.guild.member(wUser).ban(reason);
 
