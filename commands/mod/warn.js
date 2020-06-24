@@ -1,5 +1,4 @@
 
-const Discord = require("discord.js");
 
 const fs = require("fs");
 
@@ -13,6 +12,7 @@ module.exports = {
   description: "warns🔨 User", 
   usage: "${prefix}warn @{mention} {reason}", 
   run: async (cli, message, args,) => {
+
   if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No can do pal!");
 
   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
@@ -58,7 +58,7 @@ module.exports = {
   .addField("Reason", reason);
 
 
-  let warnchannel = message.guild.channels.find(`name`, "punishments");
+  let warnchannel = message.guild.channels.find(`name`, "warns");
 
   if(!warnchannel) return message.reply("Couldn't find channel");
 
@@ -66,17 +66,31 @@ module.exports = {
   warnchannel.send(warnEmbed);
 
 
-  if(warns[wUser.id].warns == 3){
+  if(warns[wUser.id].warns == 5){
+
+    let muterole = message.guild.roles.find(`name`, "muted");
+
+    if(!muterole) return message.reply("mute role dosent exist.");
 
 
-    message.guild.member(wUser).kick(reason)
+    let mutetime = "2h";
 
-    message.channel.send(`<@${wUser.id}> has been kicked`);
+    await(wUser.addRole(muterole.id));
+
+    message.channel.send(`<@${wUser.id}> has been temporarily muted`);
 
 
- 
+    setTimeout(function(){
 
-  if(warns[wUser.id].warns == 4){
+      wUser.removeRole(muterole.id)
+
+      message.reply(`<@${wUser.id}> has been unmuted.`)
+
+    }, ms(mutetime))
+
+  }
+
+  if(warns[wUser.id].warns == 10){
 
     message.guild.member(wUser).ban(reason);
 
@@ -86,7 +100,3 @@ module.exports = {
 
 
 }
-
-}
-
-
