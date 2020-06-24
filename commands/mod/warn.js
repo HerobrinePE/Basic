@@ -58,7 +58,7 @@ module.exports = {
   .addField("Reason", reason);
 
 
-  let warnchannel = message.guild.channels.find(`name`, "warns");
+  let warnchannel = message.guild.channels.find(`name`, "punishments");
 
   if(!warnchannel) return message.reply("Couldn't find channel");
 
@@ -99,4 +99,5 @@ module.exports = {
   }
 
 
+}
 }
