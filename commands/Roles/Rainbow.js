@@ -21,10 +21,10 @@ module.exports = {
               message.channel.send(ge+" role has been set to rainbow role with "+ms(ms(mc+t)) + " interval")
 role()
       }
-      function role(){
-      var colors = ["#FF2E00","#00FF20","#00FFCF","#0014FF","#FF00B3","#FF7500"]
+     function role(){
+var colors = ["#FF2E00","#00FF20","#00FFCF","#0014FF","#FF00B3","#FF7500"]
       var random = colors[Math.floor(Math.random() * colors.length)]
-      setTimeout(() =>{
+            setTimeout(function() =>{
         rRole.edit({color: random})
 role()
     }, ms(mc+t));
