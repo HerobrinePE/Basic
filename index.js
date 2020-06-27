@@ -12,7 +12,6 @@ client.categories = fs.readdirSync("./commands/");
 ["command"].forEach(handler => {
   require(`./handlers/${handler}`)(client);
 });
-/*
 client.on("guildMemberAdd", member => {
   const guild = client.guilds.get("472128849417601036");
   var memberCount = guild.members.filter(member => !member.user.bot).size;
@@ -26,7 +25,8 @@ client.on("guildMemberRemove", member => {
   var memberCountChannel = client.channels.get("710145974093348964");
   memberCountChannel.setName(`${memberCount} members!`);
 });
-*/
+
+
 client.on("ready", async function() {
   var list = [
     `Use my Prefix ${process.env.PREFIX}`,
