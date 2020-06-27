@@ -1,15 +1,24 @@
 const ms = require("ms")
 const fs = require("fs")
+
 let {premium} = JSON.parse(fs.readFileSync("./config.json", "utf8"))
 module.exports = {
 	name: "rrole",
   aliases: ["rainbow"],
 	category: "premium",
-	description: "***PREMIUM MEMBERS*** Changes role color to rainbow",
+	description: "***PREMIUM MEMBERS*** Changes role color to rainbow
 	run: (client, message, args)=>{    
   
     
     let ge = args[0]
+
+	run: (client, message, args)=>{
+    if (!message.member.hasPermission("MANAGE_MESSAGES"))
+      return message
+        .reply("You don't have the required permissions to use this command.")
+        .then(m => m.delete(5000));
+  let ge = args[0]
+//>>>>>>> master
     let mc=args[1]
     if(!mc) return message.reply("select a time 4s or above remember leave a space between selections")
     let t = args[2]
@@ -27,7 +36,11 @@ role()
       function role(){
       var colors = ["#FF2E00","#00FF20","#00FFCF","#0014FF","#FF00B3","#FF7500"]
       var random = colors[Math.floor(Math.random() * colors.length)]
+//<<<<<<< glitch
       setInterval(() =>{
+//=======
+      setTimeout(() =>{
+//>>>>>>> master
         role()
         rRole.edit({
             color: random
