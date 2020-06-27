@@ -4,6 +4,7 @@ module.exports = {
     run: async (client, msg, args) => {
     if(!msg.member.hasPermission == "ADMINISTRATOR") return msg.reply("you cant kill this interval")
     msg.channel.send("Turning off please wait")
-            msg.reply("Loop ended").then(()=>{ process.exit(1)})
+            msg.reply("Loop ended").then(()=>{client.destroy()
+client.login(process.env.TOKEN)})
 }
 }
