@@ -24,11 +24,11 @@ role()
       function role(){
       var colors = ["#FF2E00","#00FF20","#00FFCF","#0014FF","#FF00B3","#FF7500"]
       var random = colors[Math.floor(Math.random() * colors.length)]
-      setInterval(() =>{
-        role()
+      setTimeout(() =>{
         rRole.edit({
             color: random
         })
+role()
     }, ms(mc+t));
       }
     }catch(error){
