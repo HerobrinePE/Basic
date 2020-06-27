@@ -18,15 +18,11 @@ module.exports = {
         message.reply("8 seconds or above")
       }
       if(mc >= 8){
-              message.channel.send(ge+" role has been set to rainbow role with "+ms(ms(mc+t)) + " interval")
-role()
-      }
-     function role(){
+              message.channel.send(ge+" role has been set to rainbow role with "+ms(ms(mc+t)) + " interval")   
 var colors = ["#FF2E00","#00FF20","#00FFCF","#0014FF","#FF00B3","#FF7500"]
       var random = colors[Math.floor(Math.random() * colors.length)]
-            setTimeout(function(){
-        rRole.edit({color: random})
-role()
+            setInterval((){
+        rRole.edit({color: random })
     }, ms(mc+t));
       }
     }catch(error){
