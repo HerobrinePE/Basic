@@ -4,6 +4,8 @@ const fs = require("fs");
 
 const ms = require("ms");
 
+const Discord = require("discord.js")
+
 let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 module.exports = {
  name:"warn",
