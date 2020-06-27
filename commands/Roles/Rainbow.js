@@ -18,7 +18,7 @@ module.exports = {
         message.reply("8 seconds or above")
       }
       if(mc >= 8){
-              message.channel.send(ge+" role has been set to rainbow role with "+ms(ms(mc+t)) + " interval")
+              message.channel.send(ge+" role has been set to rainbow role with "+ ms(ms(mc+t)) + " interval")
 role()
       }
       function role(){
