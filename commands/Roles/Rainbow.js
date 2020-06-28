@@ -5,7 +5,7 @@ module.exports = {
   aliases: ["rainbow"],
 	category: "Roles",
 	description: "***RAINBOW MEMBERS*** Changes role color to rainbow",
-	run: (client, message, args)=>{
+	run: (client, message, args, ready)=>{
     if (!message.member.hasPermission("MANAGE_MESSAGES"))
       return message
         .reply("You don't have the required permissions to use this command.")
@@ -28,7 +28,7 @@ role()
       function role(){
       var colors = ["#FF2E00","#00FF20","#00FFCF","#0014FF","#FF00B3","#FF7500"]
       var random = colors[Math.floor(Math.random() * colors.length)]
-      setTimeout(() =>{
+      setTimeout(function() {
         role()
         rRole.edit({
             color: random
