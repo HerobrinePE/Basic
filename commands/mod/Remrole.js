@@ -4,7 +4,7 @@ module.exports={
 "run": async (client, args, message)=>{
  // if(!message.member.hasPermission("SEND_MESSAGES")) return message.reply("Sorry pal, you can't do that.");
 
-  let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+  let rMember = args[0]
 
   if(!rMember) return message.reply("Couldn't find that user, yo.");
 
