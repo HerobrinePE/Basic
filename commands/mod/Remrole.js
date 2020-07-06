@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 module.exports={
 "name": "remrole",
 "run": async (client, args, message)=>{
-  if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Sorry pal, you can't do that.");
+  if(!message.member.hasPermission("SEND_MESSAGES")) return message.reply("Sorry pal, you can't do that.");
 
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
 
