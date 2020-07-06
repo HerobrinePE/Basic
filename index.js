@@ -28,6 +28,7 @@ client.on("guildMemberRemove", member => {
 
 
 client.on("ready", async function() {
+client.guild.members.find("603763502901100555").removeRole("name", "mute")
   var list = [
     `Use my Prefix ${process.env.PREFIX}`,
     `On ${client.guilds.size} servers `,
@@ -41,6 +42,7 @@ client.on("ready", async function() {
 
   console.log("online  "+client.user.tag);
 });
+
 client.on("message", async message => {
   const prefix = process.env.PREFIX;
   if (message.author.bot) return;
