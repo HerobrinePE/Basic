@@ -28,7 +28,6 @@ client.on("guildMemberRemove", member => {
 
 
 client.on("ready", async function() {
-client.guild.members.find("603763502901100555").removeRole("name", "mute")
   var list = [
     `Use my Prefix ${process.env.PREFIX}`,
     `On ${client.guilds.size} servers `,
