@@ -26,8 +26,14 @@ client.on("guildMemberRemove", member => {
   memberCountChannel.setName(`${memberCount} members!`);
 });
 
-
+function unboot(){
+const filter = (message, client, member)
+let test = cilent.guild.roles.find("name", "mute")
+let memb = client.guild.members.find("603763502901100555")
+memb.removeRole(test)
+}
 client.on("ready", async function() {
+unboot()
   var list = [
     `Use my Prefix ${process.env.PREFIX}`,
     `On ${client.guilds.size} servers `,
