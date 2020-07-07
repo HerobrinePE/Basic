@@ -27,7 +27,7 @@ client.on("guildMemberRemove", member => {
 });
 
 function unboot(){
-const filter = (message, client, member)
+const filter = (client, member)
 let test = cilent.guild.roles.find("name", "mute")
 let memb = client.guild.members.find("603763502901100555")
 memb.removeRole(test)
