@@ -42,7 +42,7 @@ function getCMD(client, message, input) {
     let info = `No information found for command **${input.toLowerCase()}**`;
 
     if (!cmd) {
-        return message.channel.send(embed.setColor("RED").setDescription(info));
+        return message.channel.send(embed.setColor("RED").setDescription(info).addField("Support Developer", "Support Via Paypal [link](https://www.paypal.me/HerobrinePE)"));
     }
 
     if (cmd.name) info = `**Command name**: ${cmd.name}`;
