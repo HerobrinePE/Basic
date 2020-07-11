@@ -31,7 +31,7 @@ function getAll(client, message) {
         .map(cat => stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** \n${commands(cat)}`)
         .reduce((string, category) => string + "\n" + category);
 
-    return message.channel.send(embed.setDescription(info));
+    return message.channel.send(embed.addField("Support Developer", "Support Via Paypal [link](https://www.paypal.me/HerobrinePE)").embed.setDescription(info));
 }
 
 function getCMD(client, message, input) {
@@ -42,7 +42,7 @@ function getCMD(client, message, input) {
     let info = `No information found for command **${input.toLowerCase()}**`;
 
     if (!cmd) {
-        return message.channel.send(embed.setColor("RED").setDescription(info).addField("Support Developer", "Support Via Paypal [link](https://www.paypal.me/HerobrinePE)"));
+        return message.channel.send(embed.setColor("RED").setDescription(info));
     }
 
     if (cmd.name) info = `**Command name**: ${cmd.name}`;
