@@ -7,7 +7,7 @@ module.exports = {
 	description: "Message another chat using the bot",
 	run: (client, message, args)=>{
     message.delete()
-    var i = 2000
+    var i = 5000
        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cant do that")
         const text = message.content.split(" ").slice(2)
         if(!text) message.channel.send("What Should i say?")
@@ -16,7 +16,7 @@ module.exports = {
     mUser.startTyping();
     setTimeout(()=>{
       mUser.send(text.join(" "))
-    }, text.length*i)
+    }, i)
     mUser.stopTyping();
 
 	}
