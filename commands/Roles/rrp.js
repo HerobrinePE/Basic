@@ -1,7 +1,7 @@
 const {RichEmbed} = require("discord.js")
 module.exports = {
   name: "rrp",
-  category:"Roles",
+  category:null,
   run: async (client, message, args) => {
     let role = args[0];
     if (!role) return message.reply("no role specified");
