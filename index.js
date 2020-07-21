@@ -64,22 +64,9 @@ client.on("message", async message => {
 var token = require("dotenv");
 const embed = new RichEmbed();
 client.on("message", message => {
-  if (message.content === process.env.PREFIX + "IP")
-    var x = message.channel
-      .send(`${message.author} your request`)
-      .then(x => {
-        x.react("👍");
-        message.channel.send(
-          `${message.author}`,
-          embed.setTitle("Processed"),
-          embed.setColor("RANDOM"),
-          embed.addField(
-            "Server IP and Port",
-            "<a:NitroBoost728:709614699041259570><a:Fire:514567641449627648>     Server IP=rainbowevents.us.to     \nServer Port=Port: 25565     <a:NitroBoost728:709614699041259570><a:Fire:514567641449627648>"
-          ),
-          embed.setDescription("_________________")
-        );
-      });
+  if (message.content === process.env.PREFIX + "bot")
+    
+message.reply(`Here is my invite link`+"\n https://discord.com/api/oauth2/authorize?client_id=606109109837758474&permissions=8&scope=bot")
 });
 
 client.on("guildCreate", guild => {
