@@ -1,4 +1,4 @@
-const cdt = 86400;
+const cdt = 60;
 const cd = new Set();
 module.exports = {
   name: "tinvite",
@@ -6,7 +6,7 @@ module.exports = {
   run: async (client, message, args) => {
     if (cd.has(message.author.id)) {
       message.reply(
-        "This command is on cooldown please wait 1 day to get another invite link"
+        "This command is on cooldown please wait 1 minute to get another invite link"
       );
     } else {
       send();
