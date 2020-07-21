@@ -1,6 +1,6 @@
 const {RichEmbed} = require("discord.js")
 module.exports = {
-  name: "srp",
+  name: "setrp",
   category:"Roles",
   description: "Sets Role Permission",
   run: async (client, message, args) => {
