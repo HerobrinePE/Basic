@@ -28,6 +28,13 @@ module.exports = {
       rRole.edit({
         color: mf
       });
+let bed = new RichEmbed()
+          .setColor(mf)
+          .setTitle("role color changed")
+          .addField(
+            `${message.author.tag}`,
+            "changed the " + rRole + " color to " + mf);
+        message.channel.send(bed);
     }
 
     function cal() {
