@@ -12,7 +12,6 @@ client.categories = fs.readdirSync("./commands/");
 ["command"].forEach(handler => {
   require(`./handlers/${handler}`)(client);
 });
-/*
 client.on("guildMemberAdd", member => {
   const guild = client.guilds.get("472128849417601036");
   var memberCount = guild.members.filter(member => !member.user.bot).size;
@@ -26,7 +25,9 @@ client.on("guildMemberRemove", member => {
   var memberCountChannel = client.channels.get("710145974093348964");
   memberCountChannel.setName(`${memberCount} members!`);
 });
-*/
+
+
+
 client.on("ready", async function() {
   var list = [
     `Use my Prefix ${process.env.PREFIX}`,
@@ -41,6 +42,7 @@ client.on("ready", async function() {
 
   console.log("online  "+client.user.tag);
 });
+
 client.on("message", async message => {
   const prefix = process.env.PREFIX;
   if (message.author.bot) return;
@@ -62,22 +64,9 @@ client.on("message", async message => {
 var token = require("dotenv");
 const embed = new RichEmbed();
 client.on("message", message => {
-  if (message.content === process.env.PREFIX + "IP")
-    var x = message.channel
-      .send(`${message.author} your request`)
-      .then(x => {
-        x.react("👍");
-        message.channel.send(
-          `${message.author}`,
-          embed.setTitle("Processed"),
-          embed.setColor("RANDOM"),
-          embed.addField(
-            "Server IP and Port",
-            "<a:NitroBoost728:709614699041259570><a:Fire:514567641449627648>     Server IP=rainbowevents.us.to     \nServer Port=Port: 25565     <a:NitroBoost728:709614699041259570><a:Fire:514567641449627648>"
-          ),
-          embed.setDescription("_________________")
-        );
-      });
+  if (message.content === process.env.PREFIX + "bot")
+    
+message.reply(`Here is my invite link`+"\n https://discord.com/api/oauth2/authorize?client_id=606109109837758474&permissions=8&scope=bot")
 });
 
 client.on("guildCreate", guild => {
