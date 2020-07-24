@@ -21,7 +21,6 @@ module.exports = {
     } else if (text.startsWith("random")) {
       cal();
     } else if (text.startsWith(text)) {
-      if(!text.startsWith(mf)) return message.reply("not a color")
       color();
     }
     async function color() {
