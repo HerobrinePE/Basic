@@ -24,19 +24,20 @@ module.exports = {
       if(!text.startsWith(mf)) return message.reply("not a color")
       color();
     }
-    function color() {
+    async function color() {
+      try{
+        let embed = new RichEmbed()
+        .setColor(mf)
+        .setTitle("color set")
+        .setDescriprion("color has been set to "+mf+" by "+message.author.userame)
+        await message.channel.send(embed)
       rRole.edit({
         color: mf
       });
-let bed = new RichEmbed()
-          .setColor(mf)
-          .setTitle("role color changed")
-          .addField(
-            `${message.author.tag}`,
-            "changed the " + rRole + " color to " + mf);
-        message.channel.send(bed);
+    }catch(e){
+      console.log(e)
     }
-
+}
     function cal() {
       try {
         let random = Math.floor(Math.random() * 16777215).toString(16);
