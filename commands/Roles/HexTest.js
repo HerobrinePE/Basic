@@ -24,7 +24,7 @@ module.exports = {
       color();
     }
     function color() {
-      message.channel.send(`color changed to ${cols}`)
+      message.channel.send(`color changed to ${mf}`)
       rRole.edit({
         color: mf
       });
