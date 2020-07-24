@@ -20,7 +20,7 @@ module.exports = {
       call();
     } else if (text.startsWith("random")) {
       cal();
-    } else if (text.startsWith(text)) {
+    } else if (mf.startsWith("#")) {
       color();
     }
     async function color() {
