@@ -23,19 +23,12 @@ module.exports = {
     } else if (text.startsWith(text)) {
       color();
     }
-    async function color() {
-      try{
-        let embed = new RichEmbed()
-        .setColor(mf)
-        .setTitle("color set")
-        .setDescriprion("color has been set to "+mf+" by "+message.author.userame)
-        await message.channel.send(embed)
+    function color() {
+      message.channel.send(`color changed to ${cols}`)
       rRole.edit({
         color: mf
       });
-    }catch(e){
-      console.log(e)
-    }
+  
 }
     function cal() {
       try {
