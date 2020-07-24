@@ -1,4 +1,3 @@
-
 const { RichEmbed } = require("discord.js");
 const fs = require("fs");
 let cols = JSON.parse(fs.readFileSync("./color.json", "utf8"));
