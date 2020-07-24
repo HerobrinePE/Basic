@@ -15,7 +15,6 @@ module.exports = {
     if (!rRole) return message.reply("ERROR 404 role not found");
     let text = args[1];
     let mf = cols[text];
-    if(!mf) return message.reply("color not found")
     if (!text) return message.reply.toUpperCase("please select random or hex color");
     if (text.startsWith("#")) {
       call();
