@@ -14,22 +14,33 @@ module.exports = {
     let rRole = message.mentions.roles.first();
     if (!rRole) return message.reply("ERROR 404 role not found");
     let text = args[1];
-    let mf = cols[text];
-    if (!text) return message.reply.toUpperCase("please select random or hex color");
+    const mf = cols[text];
+    console.log(mf);
+    const mt = text.split("#", 7);
+    let mes = mt;
+
+    if (!text)
+      return message.reply.toUpperCase("please select random or hex color");
     if (text.startsWith("#")) {
       call();
     } else if (text.startsWith("random")) {
       cal();
-    } else if (text.startsWith(text)) {
+    } else if (mf) {
       color();
-    }
+    } else message.reply("nope not a color");
+
     function color() {
-      message.channel.send(`color changed to ${mf}`)
+      const bet = new RichEmbed()
+        .setColor(mf)
+        .setTitle("role color changed")
+        .setDescription(
+          `${message.author.tag} has changed the ${rRole} role to ` + mf
+        );
+      message.channel.send(bet);
       rRole.edit({
         color: mf
       });
-  
-}
+    }
     function cal() {
       try {
         let random = Math.floor(Math.random() * 16777215).toString(16);
