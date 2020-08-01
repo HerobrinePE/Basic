@@ -75,7 +75,7 @@ module.exports = {
           );
         message.channel.send(embed);
       } catch (error) {
-        message.guild.channels.find("name", "errorlogs").send(error + "01=^^");
+       console.log("=>>"+error)
       }
     }
   }
