@@ -3,8 +3,8 @@ const fs = require("fs");
 let cols = JSON.parse(fs.readFileSync("./color.json", "utf8"));
 module.exports = {
   name: "crole",
-  aliases: ["hexrole"],
-  category: "RoleManagement",
+  aliases: ["hexrole", "rolecolor"],
+  category: "Roles",
   description: "***COLOR CHANGE*** Changes role color to a given Hex Color",
   run: (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES"))
@@ -13,7 +13,8 @@ module.exports = {
         .then(m => m.delete(5000));
     let rRole = message.mentions.roles.first();
     if (!rRole) return message.reply("ERROR 404 role not found");
-    let text = args[1];
+    let tet = message.content.split(" ").slice(2)
+  let text = tet.join(" ")
     const mf = cols[text];
     console.log(mf);
     const mt = text.split("#", 7);
@@ -27,7 +28,7 @@ module.exports = {
       cal();
     } else if (mf) {
       color();
-    } else message.reply("nope not a color");
+    } else message.reply("nope not a color These colors are case sensitive");
 
     function color() {
       const bet = new RichEmbed()
@@ -75,7 +76,7 @@ module.exports = {
           );
         message.channel.send(embed);
       } catch (error) {
-       console.log("=>>"+error)
+        message.guild.channels.find("name", "errorlogs").send(error + "01=^^");
       }
     }
   }
