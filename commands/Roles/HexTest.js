@@ -1,10 +1,10 @@
 const { RichEmbed } = require("discord.js");
 const fs = require("fs");
-let cols = JSON.parse(fs.readFileSync("./color.json", "utf8"));
+let cols = JSON.parse(fs.readFileSync("./col.json", "utf8"));
 module.exports = {
   name: "crole",
-  aliases: ["hexrole", "rolecolor"],
-  category: "Roles",
+  aliases: ["hexrole"],
+  category: "RoleManagement",
   description: "***COLOR CHANGE*** Changes role color to a given Hex Color",
   run: (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES"))
@@ -28,7 +28,15 @@ module.exports = {
       cal();
     } else if (mf) {
       color();
-    } else message.reply("nope not a color These colors are case sensitive");
+    } else error();
+    function error(){
+      const c = new RichEmbed()
+      .setTitle("Color Selection error")
+      .setDescription("These colors are case sensitive or the color you may have entered is wrong")
+      .addField("You can find the colors here" ,"[Hex Codes and color names](https://gist.githubusercontent.com/XDRosenheim/a41490919968338b2a23fe90574d883b/raw/b805478b072ab0cba5d4be74228dd7f00c39dc53/colors.json)")
+      .setColor("RANDOM")
+      message.reply(c);
+      }
 
     function color() {
       const bet = new RichEmbed()
