@@ -33,7 +33,7 @@ module.exports = {
       const c = new RichEmbed()
       .setTitle("Color Selection error")
       .setDescription("These colors are case sensitive or the color you may have entered is wrong")
-      .addField("You can find the colors here" ,"[Hex Codes and color names](https://gist.githubusercontent.com/XDRosenheim/a41490919968338b2a23fe90574d883b/raw/b805478b072ab0cba5d4be74228dd7f00c39dc53/colors.json)")
+      .addField("You can find the colors here" ,"[Hex Codes and color names](https://raw.githubusercontent.com/HerobrinePE/Basic/master/color.json)")
       .setColor("RANDOM")
       message.reply(c);
       }
