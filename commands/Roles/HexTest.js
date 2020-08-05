@@ -1,6 +1,6 @@
 const { RichEmbed } = require("discord.js");
 const fs = require("fs");
-let cols = JSON.parse(fs.readFileSync("./col.json", "utf8"));
+let cols = JSON.parse(fs.readFileSync("./color.json", "utf8"));
 module.exports = {
   name: "crole",
   aliases: ["hexrole"],
