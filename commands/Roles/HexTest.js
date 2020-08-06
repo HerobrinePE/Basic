@@ -4,7 +4,7 @@ let cols = JSON.parse(fs.readFileSync("./color.json", "utf8"));
 module.exports = {
   name: "crole",
   aliases: ["hexrole"],
-  category: "RoleManagement",
+  category: "Roles",
   description: "***COLOR CHANGE*** Changes role color to a given Hex Color",
   run: (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES"))
