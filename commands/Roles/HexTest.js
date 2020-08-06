@@ -4,6 +4,7 @@ let cols = JSON.parse(fs.readFileSync("./color.json", "utf8"));
 module.exports = {
   name: "crole",
   aliases: ["hexrole"],
+  description: "Sets a specific role color note some commands in this are case sensitive \n there are 3 ways to set a role color\n +crole @{role} #hex \n +crole @{role} random \n +crole @{role} {color name}, this one is case sensitive",
   category: "Roles",
   description: "***COLOR CHANGE*** Changes role color to a given Hex Color",
   run: (client, message, args) => {
