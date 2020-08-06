@@ -43,8 +43,9 @@ module.exports = {
         .setColor(mf)
         .setTitle("role color changed")
         .setDescription(
-          `${message.author.tag} has changed the ${rRole} role to ` + mf + text
-        );
+          `${message.author.tag} has changed the ${rRole} role to ` + mf 
+        )
+       .setFooter(text)
       message.channel.send(bet);
       rRole.edit({
         color: mf
