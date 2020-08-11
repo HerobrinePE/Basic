@@ -5,7 +5,7 @@ module.exports = {
   name: "crole",
   aliases: ["hexrole"],
   category: "Roles",
-  description: "Sets a specific role color note some commands in this are case sensitive \n there are 3 ways to set a role color\n +crole @{role} #hex \n +crole @{role} random \n +crole @{role} {color name}, this one is case sensitive",
+  description: "Sets a specific role color note some commands in this are case sensitive \n there are 3 ways to set a role color\n +crole @{role} #hex \n +crole @{role} random \n +crole @{role} {color name}, this one is case sensitive\n find role colors [here](https://raw.githubusercontent.com/HerobrinePE/Basic/master/color.json)",
   run: (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES"))
       return message
