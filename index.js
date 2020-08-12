@@ -91,7 +91,7 @@ client.on("message", message =>{
     .setAuthor(message.author.username)
     .addField(`${message.author.tag} sent`, `${message.content}`)
     .setFooter(message.author.id)
-    client.channels.get(`714358527514378250`).send(bed)
+    client.channels.get(`742961125607342181`).send(bed)
     
     }
 })
