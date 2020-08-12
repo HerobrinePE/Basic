@@ -24,6 +24,7 @@ module.exports = {
       let text = message.content.split(" ").slice(2);
       if (!text) return message.reply("Cant do that");
       client.users.get(usr).send(text.join(" "));
+      message.reply("sent")
         }else return message.reply("not a valid id")
     }
   }
