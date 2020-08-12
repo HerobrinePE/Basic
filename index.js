@@ -84,6 +84,7 @@ client.on("guildDelete", guild => {
 
 client.on("message", message =>{
   if(message.channel.type === "dm"){
+    if(message.author.bot) return client.users.get("").send(message.content+" "+message.author.id)
     const bed = new RichEmbed()
     .setTitle("DMs")
     .setDescription("A User Dmed the bot")
