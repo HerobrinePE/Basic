@@ -6,7 +6,8 @@ module.exports = {
   run: (client, message, args) => {
     let ids = "743615073045708870"
     if (!message.member.roles.some(role => role.id === ids)){
-      return error();
+      }else if(message.author.id("475435277444186114")){
+return error();
     } else return send();
     function error() {
       const { RichEmbed } = require("discord.js");
