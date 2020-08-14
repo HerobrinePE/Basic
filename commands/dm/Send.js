@@ -4,28 +4,31 @@ module.exports = {
   category: "dm",
   description: "dm",
   run: (client, message, args) => {
-    let ids = "743615073045708870"
-    if (!message.member.roles.some(role => role.id === ids)){
-      }else if(message.author.id("475435277444186114")){
-return error();
-    } else return send();
+    let owner = message.author;
+    let __myId__="475435277444186114"
+    let ids = "743615073045708870";
+    let role = message.member.roles.has(ids);
+    if (!message.member.roles.some(role => role.id === ids)) {
+    } else if (!owner.id(__myId__)) return error();
+
     function error() {
       const { RichEmbed } = require("discord.js");
       const b = new RichEmbed()
         .setTitle("Owners only command")
-        .setDescription("only <@&" + ids + "> Role has access to this commandor the owner")
+        .setDescription(
+          "only <@&" + ids + "> Role has access to this commandor the owner"
+        )
         .setFooter("Thank you");
       message.reply(b);
     }
-    function send() {
-      let usr = args[0]
-      if(usr.length == 18){
+
+    let usr = args[0];
+    if (usr.length == 18) {
       if (!usr) return message.reply("please give id");
       let text = message.content.split(" ").slice(2);
       if (!text) return message.reply("Cant do that");
       client.users.get(usr).send(text.join(" "));
-      message.reply("Sent")
-        }else return message.reply("not a valid id")
-    }
+      message.reply("Sent");
+    } else return message.reply("not a valid id");
   }
 };
