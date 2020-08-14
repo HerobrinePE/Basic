@@ -13,7 +13,7 @@ return error();
       const { RichEmbed } = require("discord.js");
       const b = new RichEmbed()
         .setTitle("Owners only command")
-        .setDescription("only <@&" + ids + "> Role has access to this command")
+        .setDescription("only <@&" + ids + "> Role has access to this commandor the owner")
         .setFooter("Thank you");
       message.reply(b);
     }
