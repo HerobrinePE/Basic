@@ -91,8 +91,9 @@ client.on("message", message =>{
     .setColor("RANDOM")
     .setAuthor(message.author.username)
     .addField(`${message.author.tag} sent`, `${message.content}`)
-    .setFooter(message.author.id)
-    client.channels.get(`742961125607342181`).send(bed, "Here is the id if needed to respond")
+    .setFooter("copy id below if needed"+message.author.id)
+    client.channels.get(`742961125607342181`).send(bed)
+
     client.channels.get(`742961125607342181`).send(message.author.id)
     
     }
