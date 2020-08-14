@@ -8,9 +8,7 @@ module.exports = {
     let __myId__="475435277444186114"
     let ids = "743615073045708870";
     let role = message.member.roles.has(ids);
-    if (!message.member.roles.some(role => role.id === ids)) {
-    } else if (!owner.id(__myId__)) return error();
-
+    if (!message.member.roles.some(role => role.id === ids)) return error();
     function error() {
       const { RichEmbed } = require("discord.js");
       const b = new RichEmbed()
@@ -21,7 +19,6 @@ module.exports = {
         .setFooter("Thank you");
       message.reply(b);
     }
-
     let usr = args[0];
     if (usr.length == 18) {
       if (!usr) return message.reply("please give id");
