@@ -4,16 +4,15 @@ module.exports = {
   category: "dm",
   description: "dm",
   run: (client, message, args) => {
-    let owner = "475435277444186114";
-    let ids = message.author;
-    if (!ids.id == owner) {
+    let ids = "743615073045708870"
+    if (!message.member.roles.some(role => role.id === ids)){
       return error();
     } else return send();
     function error() {
       const { RichEmbed } = require("discord.js");
       const b = new RichEmbed()
         .setTitle("Owners only command")
-        .setDescription("only <@" + owner + "> has access to thos command")
+        .setDescription("only <@&" + ids + "> Role has access to this command")
         .setFooter("Thank you");
       message.reply(b);
     }
@@ -24,7 +23,7 @@ module.exports = {
       let text = message.content.split(" ").slice(2);
       if (!text) return message.reply("Cant do that");
       client.users.get(usr).send(text.join(" "));
-      message.reply("sent")
+      message.reply("Sent")
         }else return message.reply("not a valid id")
     }
   }
