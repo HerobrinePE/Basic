@@ -11,7 +11,7 @@ module.exports = {
     .addField("In Collaboration with", "[Cloud Developers](https://discord.gg/w5fDZ3W)")
     .addField("*", "[Levot Developers](https://discord.gg/8SyQY3q)")
     .addField("And", " [Orange Group](https://discord.gg/q39C4Sj) the creator of [Orange Echo Stable](https://discordapp.com/oauth2/authorize?client_id=714001186897788934&scope=bot&permissions=2146958847)")
-    .addField("Shout Out to", "[The Local Lads](https://www.youtube.com/channel/UC2PQ40s_zQA3u9gIyTgRtJA)")
+    .addField("Shout Out to", "[The Local Lads](https://www.youtube.com/channel/UC2PQ40s_zQA3u9gIyTgRtJA) Go sub to then as well their channel has amazing content")
     .addField("Devs Discord name", "Orange Group#5362, HerobrinePE#2365, Rainbowed#2261, Herobrina#3229, NC_Legend#2147, Skies#8245, Reverse#0001, chrhol#5015")
     .addField("For help and Support", "[Click Here](https://discord.gg/HBSX4t9)")
     .setFooter(`Command called by ${message.author.username}`)
