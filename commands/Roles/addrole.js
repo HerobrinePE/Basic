@@ -1,7 +1,8 @@
 const { RichEmbed } = require("discord.js");
 module.exports = {
   name: "role",
-  "description":"Gives someone a role\n server owners can use +role everyone @role to give everyone a role specific role",
+  category:"Roles",
+  description:"Gives someone a role\n server owners can use +role everyone @role to give everyone a role specific role",
   run: (client, message, args) => {
     let guid = message.guild;
     let mem = message.member;
