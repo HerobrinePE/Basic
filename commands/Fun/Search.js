@@ -43,8 +43,9 @@ module.exports ={
                 .setDescription(`${selected.description}`)
                 .setThumbnail(`${selected.thumbnails.default.url}`);
 
-            message.channel.send(embed)
+            message.channel.send(embed).then(
             textMsg.delete()
+)
   }
 }
 };
