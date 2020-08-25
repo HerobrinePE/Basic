@@ -26,7 +26,7 @@ module.exports ={
                 return i + ") " + result.title;
             });
             console.log(titles);
-           let textMsg = message.channel.send({
+           const {textMsg} = message.channel.send({
                 embed: {
                     title: 'Select what you want by typing the number',
                     description: titles.join("\n")
@@ -43,9 +43,9 @@ module.exports ={
                 .setDescription(`${selected.description}`)
                 .setThumbnail(`${selected.thumbnails.default.url}`);
 
-            message.channel.send(embed).then(
+            message.channel.send(embed)
             textMsg.delete()
-)
+
   }
 }
 };
