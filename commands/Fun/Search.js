@@ -26,9 +26,9 @@ module.exports ={
                 return i + ") " + result.title;
             });
             console.log(titles);
-            message.channel.send({
+           let textMsg = message.channel.send({
                 embed: {
-                    title: 'Select which song you want by typing the number',
+                    title: 'Select what you want by typing the number',
                     description: titles.join("\n")
                 }
             }).catch(err => console.log(err));
@@ -43,7 +43,8 @@ module.exports ={
                 .setDescription(`${selected.description}`)
                 .setThumbnail(`${selected.thumbnails.default.url}`);
 
-            message.channel.send(embed);
+            message.channel.send(embed)
+            textMsg.delete()
   }
 }
 };
