@@ -14,7 +14,7 @@ module.exports = {
     opts ={
 maxResults:25,
 key:process.env.api,
-type:video
+type:"video"
 }
     let embed = new RichEmbed()
       .setColor("#73ffdc")
