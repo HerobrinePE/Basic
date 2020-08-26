@@ -32,7 +32,7 @@ function getAll(client, message) {
         .reduce((string, category) => string + "\n" + category);
 
     return message.channel.send(" ",embed.setDescription(info))
-
+}
 function getCMD(client, message, input) {
     const embed = new RichEmbed()
 
