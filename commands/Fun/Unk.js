@@ -1,4 +1,4 @@
-9const search = require("youtube-search");
+const search = require("youtube-search");
 const { RichEmbed } = require("discord.js");
 const ytdl = require("ytdl-core");
 module.exports = {
