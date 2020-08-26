@@ -1,10 +1,7 @@
 const { readdirSync } = require("fs");
 
-const ascii = require("ascii-table");
 
 // Create a new Ascii table
-let table = new ascii("Commands");
-table.setHeading("Command", "Load status");
 
 module.exports = (client) => {
     // Read every commands subfolder
@@ -20,9 +17,9 @@ module.exports = (client) => {
     
             if (pull.name) {
                 client.commands.set(pull.name, pull);
-                table.addRow(file, '✅');
+                console.log(file, '✅');
             } else {
-                table.addRow(file, `❌  -> missing a help.name, or help.name is not a string.`);
+                console.log(file, `❌  -> missing a help.name, or help.name is not a string.`);
                 continue;
             }
     
@@ -31,5 +28,5 @@ module.exports = (client) => {
         }
     });
     // Log the table
-    console.log(table.toString());
+    //console.log(table.toString());
 }
