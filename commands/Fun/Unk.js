@@ -11,7 +11,11 @@ module.exports = {
       volume: 2,
       filter : "audioonly"
     };
-    
+    opts ={
+maxResults:25,
+key:process.env.api,
+type:video
+}
     let embed = new RichEmbed()
       .setColor("#73ffdc")
       .setDescription(
