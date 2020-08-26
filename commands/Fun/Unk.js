@@ -21,8 +21,8 @@ module.exports = {
     let embedMsg = await message.channel.send(embed);
 try{
     let filter = m => m.author.id === message.author.id;
-    const query = message.channel.awaitMessages(filter, { max: 1});
-    let results = await search(query.first().content, opts).catch(err =>
+    const query = message.content.split(" ").slice(2)
+    let results = await search(query.join(" "), opts).catch(err =>
       console.log(err)
     );
     if (results) {
