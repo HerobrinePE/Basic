@@ -11,11 +11,7 @@ module.exports = {
       volume: 2,
       filter : "audioonly"
     };
-    const opts = {
-      maxResults: 25,
-      key: process.env.api,
-      type: "video"
-    };
+    
     let embed = new RichEmbed()
       .setColor("#73ffdc")
       .setDescription(
@@ -26,7 +22,13 @@ module.exports = {
     let filter = m => m.author.id === message.author.id;
     const query = await message.channel.awaitMessages(filter, { max: 1 });
 try{
-    let results = await search(query.first().content, opts).catch(err =>
+const opts = {
+      maxResults: 25,
+      key: process.env.api,
+      type: "video"
+    };
+const info = query.first()
+    let results = await search(info.content, opts).catch(err =>
       console.log(err)
     );
     if (results) {
