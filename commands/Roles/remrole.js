@@ -25,7 +25,7 @@ module.exports = {
         .setColor("RANDOM")
         message.channel.send(bed)
         user.send(`${user} you have just lost the ${role.name}`)
-        
+        }
     } catch (e) {
       const errorbed = new RichEmbed().setDescription(e);
       message.channel.send(errorbed);
