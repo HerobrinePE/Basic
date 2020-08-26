@@ -22,8 +22,7 @@
     "youtube-search": "^1.1.4",
     "ffmpeg": "^0.0.4",
     "ffmpeg-binaries": "^4.0.0",
-    "@discordjs/opus": "^0.3.2",
-    "opusscript": "^0.0.7"
+    "@discordjs/opus": "^0.3.2"
   },
   "engines": {
     "node": "12.x"
