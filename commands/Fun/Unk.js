@@ -92,7 +92,7 @@ try{
                 let connection = await message.member.voiceChannel.join();
                 const stream = ytdl(que[0], opt)
                 const disaptcher = connection.playStream(stream)
-                message.reply(`playing ${selected.title} + ${que[0]}`);
+                message.reply(`playing ${selected.title}`);
               } catch (e) {
                 throw e;
               }
