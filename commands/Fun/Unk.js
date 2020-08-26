@@ -22,16 +22,16 @@ module.exports = {
 try{
     let filter = m => m.author.id === message.author.id;
     const query = await message.channel.awaitMessages(filter, { max: 1 });
-
 const opts = {
       maxResults: 25,
       key: process.env.api,
       type: "video"
     };
-const info = await query.first()
-    let results = await search(info.content, opts).catch(err =>
+setTimeout(()=>{
+    let results = await search(query.first().content, opts).catch(err =>
       console.log(err)
     );
+},message.length*2 )
     if (results) {
       let youtubeResults = results.results;
       let i = 0;
