@@ -23,6 +23,7 @@ module.exports = {
       )
       .setTitle("YouTube Search API");
     let embedMsg = await message.channel.send(embed);
+try{
     let filter = m => m.author.id === message.author.id;
     let query = await message.channel.awaitMessages(filter, { max: 1 });
     let results = await search(query.first().content, opts).catch(err =>
@@ -105,6 +106,8 @@ module.exports = {
             );
           });
       });
-    }
+}
+} catch(e){console.log(e)}
+    
   }
 };
