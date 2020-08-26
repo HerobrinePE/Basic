@@ -20,11 +20,11 @@ module.exports = {
         if(!role) return message.reply("please mention role")
         user.removeRole(role);
         const bed = new RichEmbed()
-        .setTitle("ROLE ADDED")
+        .setTitle("ROLE REMOVED")
         .setDescription(`${message.author} has updated roles for ${user}`)
         .setColor("RANDOM")
         message.channel.send(bed)
-        user.send(`Congrats ${user} you have just gotten the ${role.name}`)
+        user.send(`${user} you have just lost the ${role.name}`)
         function check() {
           if (message.author.id == guid.owner.id) return everyone();
           function everyone() {
@@ -32,11 +32,11 @@ module.exports = {
             let my = message.guild.roles.find("name", role)
             if(!my) return message.reply("role not found")
             message.guild.members.forEach(member => {
-              member.removeRole(role);
+              member.removeRoles(role);
             });
             const bed = new RichEmbed()
             .setTitle("Server Updated")
-            .setDescription(`${guid.owner} has given the entire server ${role}`)
+            .setDescription(`${guid.owner} has taken away ${role} from all members`)
             .setColor("RANDOM")
             message.channel.send(bed)
           }
