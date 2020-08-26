@@ -71,7 +71,9 @@
     "http": "^0.0.0",
     "bdl.js": "^1.0.0",
     "youtube-search": "^1.1.4",
-    "ascii-table": "^0.0.9"
+    "ascii-table": "^0.0.9",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-binaries": "^4.0.0"
   },
   "engines": {
     "node": "10.x"
