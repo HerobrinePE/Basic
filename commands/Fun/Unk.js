@@ -1,4 +1,4 @@
-const search = require("youtube-search");
+9const search = require("youtube-search");
 const { RichEmbed } = require("discord.js");
 const ytdl = require("ytdl-core");
 module.exports = {
@@ -107,7 +107,11 @@ try{
           });
       });
 }
-} catch(e){message.reply(e)}
+} catch(e){
+const er = new RichEmbed()
+.setDescription(e.stack)
+message.reply(er)
+}
     
   }
 };
