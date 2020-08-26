@@ -21,17 +21,16 @@ module.exports = {
     let embedMsg = await message.channel.send(embed);
 try{
     let filter = m => m.author.id === message.author.id;
-    const query = await message.channel.awaitMessages(filter, { max: 1 });
+    const query = await message.channel.awaitMessages(filter, { max: 1, time: 5000});
 const opts = {
       maxResults: 25,
       key: process.env.api,
       type: "video"
     };
-setTimeout(async ()=>{
+
     let results = await search(query.first().content, opts).catch(err =>
       console.log(err)
     );
-},message.length*2 )
     if (results) {
       let youtubeResults = results.results;
       let i = 0;
