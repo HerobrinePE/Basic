@@ -15,7 +15,7 @@ module.exports = {
     let embed = new RichEmbed()
       .setColor("#73ffdc")
       .setDescription(
-        "What Do You wanna search"
+        "Searching your song"
       )
       .setTitle("YouTube Search API")
     let embedMsg = await message.channel.send(embed);
