@@ -20,7 +20,6 @@
     "fs": "^0.0.2",
     "ms": "^2.1.2",
     "youtube-search": "^1.1.4",
-    "node-opus": "^0.3.3",
     "ffmpeg": "^0.0.4",
     "ffmpeg-binaries": "^4.0.0",
     "@discordjs/opus": "^0.3.2",
