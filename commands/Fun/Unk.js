@@ -60,7 +60,7 @@ module.exports = {
         .setDescription(
           `${selected.description}` +
             "\n \n" +
-            "Do You Wish To Play or add to Queue"
+            "***NOTE THIS IS A BETA COMMAND SO IT MAY NOT PLAY***Do You Wish To Play or add to Queue"
         )
         .setThumbnail(`${selected.thumbnails.default.url}`);
 
