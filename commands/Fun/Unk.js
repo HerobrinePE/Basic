@@ -17,17 +17,18 @@ module.exports = {
       .setDescription(
         "What Do You wanna search"
       )
-      .setTitle("YouTube Search API");
+      .setTitle("YouTube Search API")
     let embedMsg = await message.channel.send(embed);
+try{
     let filter = m => m.author.id === message.author.id;
     const query = await message.channel.awaitMessages(filter, { max: 1 });
-try{
+
 const opts = {
       maxResults: 25,
       key: process.env.api,
       type: "video"
     };
-const info = query.first()
+const info = await query.first()
     let results = await search(info.content, opts).catch(err =>
       console.log(err)
     );
