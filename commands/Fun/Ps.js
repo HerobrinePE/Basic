@@ -13,7 +13,7 @@ module.exports = {
     };
     const opts = {
       maxResults: 25,
-      key: process.env.API_KEY,
+      key: process.env.api,
       type: "video"
     };
     let embed = new RichEmbed()
