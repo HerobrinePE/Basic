@@ -27,7 +27,7 @@ const opts = {
       key: process.env.api,
       type: "video"
     };
-setTimeout(()=>{
+setTimeout(async ()=>{
     let results = await search(query.first().content, opts).catch(err =>
       console.log(err)
     );
