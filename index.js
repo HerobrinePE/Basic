@@ -81,3 +81,18 @@ client.on("guildDelete", guild => {
     client.login(process.env.TOKEN);
   }, 3000);
 });
+
+client.on("message", message =>{
+  if(message.channel.type === "dm"){
+    if(message.author.bot) return;
+    const bed = new RichEmbed()
+    .setTitle("DMs")
+    .setDescription("A User Dmed the bot")
+    .setColor("RANDOM")
+    .setAuthor(message.author.username)
+    .addField(`${message.author.tag} sent`, `${message.content}`)
+    .setFooter("copy id below if needed "+message.author.id)
+    client.channels.get(`742961125607342181`).send(bed).then(m=>{m.channel.send(message.author.id)})
+    
+    }
+})
