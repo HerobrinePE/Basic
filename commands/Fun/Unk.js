@@ -60,7 +60,7 @@ module.exports = {
         .setDescription(
           `${selected.description}` +
             "\n \n" +
-            "Do You Wish To Play or add to Queue"
+            "Play Coming soon"
         )
         .setThumbnail(`${selected.thumbnails.default.url}`);
 
@@ -82,19 +82,6 @@ module.exports = {
             console.log(que);
             if (reaction.emoji.name === "✅") {
               message.reply("OK");
-              try {
-                let vc = message.member.voiceChannel;
-                if (!vc)
-                  return message.reply(
-                    "request cannot be confirmed because user is not in a voice channel"
-                  );
-                let connection = await message.member.voiceChannel.join();
-                const stream = ytdl(que[0], opt)
-                const disaptcher = connection.playStream(stream)
-                message.reply(`playing ${selected.title} + ${que[0]}`);
-              } catch (e) {
-                throw e;
-              }
             } else {
               message.reply("Ok i will not add to queue");
             }
