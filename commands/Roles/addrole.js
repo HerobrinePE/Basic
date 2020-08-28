@@ -18,6 +18,7 @@ module.exports = {
         let user = message.mentions.members.first();
         let role = message.mentions.roles.first()
         if(!role) return message.reply("please mention role")
+        if (user.id == message.author.id) return message.reply("No dont be greedy stick with ur role")
         user.addRole(role);
         const bed = new RichEmbed()
         .setTitle("ROLE ADDED")
