@@ -2,7 +2,7 @@ const { RichEmbed } = require("discord.js");
 module.exports = {
   name: "remrole",
   category:"Roles",
-  description:"removes someone's role\n server owners can use +remrole everyone @role to remove a specific role from everyone ",
+  description:"Gives someone a role\n server owners can use +role everyone @role to give everyone a role specific role",
   run: (client, message, args) => {
     let guid = message.guild;
     let mem = message.member;
@@ -20,12 +20,30 @@ module.exports = {
         if(!role) return message.reply("please mention role")
         user.removeRole(role);
         const bed = new RichEmbed()
-        .setTitle("ROLE REMOVED")
+        .setTitle("ROLE ADDED")
         .setDescription(`${message.author} has updated roles for ${user}`)
         .setColor("RANDOM")
         message.channel.send(bed)
-        user.send(`${user} you have just lost the ${role.name}`)
+        user.send(`Congrats ${user} you have just gotten the ${role.name}`)
+        function check() {
+          if (message.author.id == guid.owner.id) return everyone();
+          function everyone() {
+            let role = message.mentions.roles.first()
+            message.guild.members.forEach(member => {
+              member.removeRole(role);
+            });
+            const bed = new RichEmbed()
+            .setTitle("Server Updated")
+            .setDescription(`${guid.owner} has given the entire server ${role}`)
+            .setColor("RANDOM")
+            message.channel.send(bed)
+          }
+          const bed = new RichEmbed()
+          .setTitle("Owner Only")
+          .setDescription(`only the server owner ${guid.owner} has access to role everyone`)
+          message.channel.send(bed);
         }
+      }
     } catch (e) {
       const errorbed = new RichEmbed().setDescription(e);
       message.channel.send(errorbed);
