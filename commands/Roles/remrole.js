@@ -18,7 +18,8 @@ module.exports = {
         let user = message.mentions.members.first();
         let role = message.mentions.roles.first()
         if(!role) return message.reply("please mention role")
-        if (user == message.author) return message.reply("No no candy do ur to stubborn you know")
+        if (user.id == message.author.id) return message.reply("No u cant remove this role from yourself")
+        if (mem.hasPermission("MANAGE_ROLES")) return message.reply("cant remove role cause they have that perms MANAGE_MESSAGES")
         user.removeRole(role);
         const bed = new RichEmbed()
         .setTitle("ROLE ADDED")
