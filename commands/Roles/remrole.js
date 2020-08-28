@@ -18,13 +18,14 @@ module.exports = {
         let user = message.mentions.members.first();
         let role = message.mentions.roles.first()
         if(!role) return message.reply("please mention role")
+        if (user == message.author) return message.reply("No no candy do ur to stubborn you know")
         user.removeRole(role);
         const bed = new RichEmbed()
         .setTitle("ROLE ADDED")
         .setDescription(`${message.author} has updated roles for ${user}`)
         .setColor("RANDOM")
         message.channel.send(bed)
-        user.send(`Congrats ${user} you have just gotten the ${role.name}`)
+        user.send(`${user} you have just gotten the ${role.name} removed what a sad day`)
         function check() {
           if (message.author.id == guid.owner.id) return everyone();
           function everyone() {
@@ -34,7 +35,7 @@ module.exports = {
             });
             const bed = new RichEmbed()
             .setTitle("Server Updated")
-            .setDescription(`${guid.owner} has given the entire server ${role}`)
+            .setDescription(`${guid.owner} has removed ${role} from everyone :( sad sad day`)
             .setColor("RANDOM")
             message.channel.send(bed)
           }
