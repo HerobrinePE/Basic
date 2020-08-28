@@ -29,8 +29,6 @@ module.exports = {
           if (message.author.id == guid.owner.id) return everyone();
           function everyone() {
             let role = message.mentions.roles.first()
-            let my = message.guild.roles.find("name", role)
-            if(!my) return message.reply("role not found")
             message.guild.members.forEach(member => {
               member.addRole(role);
             });
