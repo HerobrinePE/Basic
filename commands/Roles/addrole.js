@@ -28,7 +28,7 @@ module.exports = {
         function check() {
           if (message.author.id == guid.owner.id) return everyone();
           function everyone() {
-            let role = message.mentions.roles.first() || args[1]
+            let role = message.mentions.roles.first()
             let my = message.guild.roles.find("name", role)
             if(!my) return message.reply("role not found")
             message.guild.members.forEach(member => {
