@@ -2,7 +2,7 @@ const search = require("youtube-search");
 const { RichEmbed } = require("discord.js");
 const ytdl = require("ytdl-core");
 module.exports = {
-  name: "play",
+  name: "betaplay",
   description: "searches for yt video",
   run: async (client, message, args) => {
     const que = [];
