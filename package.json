@@ -27,7 +27,9 @@
     "opusscript": "^0.0.7",
     "minecraft-server-util": "^2.2.0",
     "mcpe-ping-fixed": "^0.0.3",
-    "mcpe-ping": "^0.0.4"
+    "mcpe-ping": "^0.0.4",
+    "covid19-stats": "^1.1.0"
+
   },
   "engines": {
     "node": "10.x"
