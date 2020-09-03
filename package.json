@@ -20,14 +20,17 @@
     "fs": "^0.0.2",
     "ms": "^2.1.2",
     "youtube-search": "^1.1.4",
+    "node-opus": "^0.3.3",
     "ffmpeg": "^0.0.4",
-    "ffmpeg-static": "^2.7.0",
     "ffmpeg-binaries": "^4.0.0",
-    "node-opus": "^0.3.3"
-    
+    "@discordjs/opus": "^0.3.2",
+    "opusscript": "^0.0.7",
+    "minecraft-server-util": "^2.2.0",
+    "mcpe-ping-fixed": "^0.0.3",
+    "mcpe-ping": "^0.0.4"
   },
   "engines": {
-    "node": "10.x"
+    "node": "12.x"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/hello-express"
