@@ -3,6 +3,7 @@ const { RichEmbed } = require("discord.js");
 
 module.exports = {
   name: "mcpeserver",
+  category:"Minecraft",
   run: (client, message, args) => {
     let mc = args[0];
     let port = args[1];
