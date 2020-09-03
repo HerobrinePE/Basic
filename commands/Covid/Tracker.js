@@ -5,6 +5,7 @@ module.exports = {
   category:"Covid",
   run: async(client, message, args) => {
     let msg = message.content.split(" ").slice(1)
+    if(!msg) return message.reply("Please type in your country's name")
     let m = msg.join(" ")
     console.log(m.toUpperCase())
     let covid = await track.getCountry(m.toUpperCase())
