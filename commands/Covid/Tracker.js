@@ -6,12 +6,13 @@ api.settings({
 });
 module.exports = {
   name: "covid",
-  description: `${process.env.PREFIX} country to get country data or ${process.env.PREFIX} world to get world data`,
+  description: `${process.env.PREFIX}covid country to get your country's data or ${process.env.PREFIX}covid world to get world data`,
   run: async (client, message, args) => {
     let msg = message.content.split(" ").slice(1);
     let m = msg.join(" ");
     let usr = message.author;
-    if (args[0] == "world") {
+    let r = args[0]
+    if (r.toLowerCase() == "world") {
       api.all().then(val => {
         const bed = new RichEmbed()
           .setTitle("☣Covid WorldWide☣")
