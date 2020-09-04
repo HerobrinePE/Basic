@@ -5,7 +5,7 @@ api.settings({
     "https://disease.sh" | "https://api.caw.sh" | "https://corona.lmao.ninja"
 });
 module.exports = {
-  name: "c19",
+  name: "covid",
   description: `${process.env.PREFIX} country to get country data or ${process.env.PREFIX} world to get world data`,
   run: async (client, message, args) => {
     let msg = message.content.split(" ").slice(1);
