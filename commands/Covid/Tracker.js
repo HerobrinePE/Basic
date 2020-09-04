@@ -44,8 +44,8 @@ module.exports = {
               `[${val.country}] [${val.countryInfo.iso2}] [${val.countryInfo.iso3}] ` +
               "☣"
           )
-          .addField("Population", val.population)
-          .addField("Updated", val.updated)
+          .addField("Api Updated Per Usage", val.updated)
+          .addField("Population", val.population)         
           .addField("Cases Today", val.todayCases)
           .addField("Total Cases", val.cases)
           .addField("Deaths", val.deaths)
