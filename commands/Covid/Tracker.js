@@ -1,23 +1,52 @@
-const {RichEmbed} = require("discord.js")
-const track = require("covid19-stats")
+const { RichEmbed } = require("discord.js");
+const api = require("covidapi");
+api.settings({
+  baseUrl:
+    "https://disease.sh" | "https://api.caw.sh" | "https://corona.lmao.ninja"
+});
 module.exports = {
   name: "covid",
-  category:"Covid",
-  run: async(client, message, args) => {
-    let msg = message.content.split(" ").slice(1)
-    if(!msg) return message.reply("Please type in your country's name")
-    let m = msg.join(" ")
-    console.log(m.toUpperCase())
-    let covid = await track.getCountry(m.toUpperCase())
-    if (!covid) return message.reply("country not found")
-    console.log(covid)
-    const bed = new RichEmbed()
-    .setTitle("Covid Tracker")
-    .addField("Country", covid.country)
-    .addField("Total Cases", covid.totalCases)
-    .addField("New Cases", covid.newCases)
-    .addField("Total Deaths", covid.totalDeaths)
-    .addField("New Deaths", covid.newDeaths)
-    message.channel.send(bed)
+  description: `${process.env.PREFIX} country to get country data or ${process.env.PREFIX} world to get world data`,
+  run: async (client, message, args) => {
+    let msg = message.content.split(" ").slice(1);
+    let m = msg.join(" ");
+    let usr = message.author;
+    if (args[0] == "world") {
+      api.all().then(val => {
+        const bed = new RichEmbed()
+          .setTitle("☣Covid WorldWide☣")
+          .addField("Updated", val.updated)
+          .addField("Total Cases", val.cases)
+          .addField("Deaths", val.deaths)
+          .addField("Deaths Today", val.todayDeaths)
+          .addField("Recoveries", val.recovered)
+          .addField("Recoveries today", val.todayRecovered)
+          .addField("Active", val.active)
+          .addField(
+            "Coding NodeJS",
+            "package used on this command [covidapi](https://www.npmjs.com/package/covidapi)"
+          );
+        message.channel.send(bed);
+      });
+    }
+
+   let countries =  api.countries({ country: m.toLowerCase() }).then(val => {
+      let embed = new RichEmbed()
+        .setThumbnail(val.countryInfo.flag)
+        .setTitle("☣Covid "+`[${val.country}] [${val.countryInfo.iso2}] [${val.countryInfo.iso3}] `+"☣")
+        .addField("Updated", val.updated)
+        .addField("Total Cases", val.cases)
+        .addField("Deaths", val.deaths)
+        .addField("Deaths Today", val.todayDeaths)
+        .addField("Recoveries", val.recovered)
+        .addField("Recoveries today", val.todayRecovered)
+        .addField("Active", val.active)
+        .addField(
+          "Coding NodeJS",
+          "package used on this command [covidapi](https://www.npmjs.com/package/covidapi)"
+        );
+      message.channel.send(embed);
+      console.log(val);
+    });
   }
 };
