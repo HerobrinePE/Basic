@@ -5,8 +5,8 @@ api.settings({
     "https://disease.sh" | "https://api.caw.sh" | "https://corona.lmao.ninja"
 });
 module.exports = {
-  name: "covid",
-  description: `${process.env.PREFIX}covid {yourcountry} to get country data or ${process.env.PREFIX}covid world to get world data`,
+  name: "c19",
+  description: `${process.env.PREFIX} country to get country data or ${process.env.PREFIX} world to get world data`,
   run: async (client, message, args) => {
     let msg = message.content.split(" ").slice(1);
     let m = msg.join(" ");
@@ -16,6 +16,7 @@ module.exports = {
         const bed = new RichEmbed()
           .setTitle("☣Covid WorldWide☣")
           .addField("Updated", val.updated)
+          .addField("Cases Today", val.todayCases)
           .addField("Total Cases", val.cases)
           .addField("Deaths", val.deaths)
           .addField("Deaths Today", val.todayDeaths)
@@ -35,6 +36,7 @@ module.exports = {
         .setThumbnail(val.countryInfo.flag)
         .setTitle("☣Covid "+`[${val.country}] [${val.countryInfo.iso2}] [${val.countryInfo.iso3}] `+"☣")
         .addField("Updated", val.updated)
+        .addField("Cases Today", val.todayCases)
         .addField("Total Cases", val.cases)
         .addField("Deaths", val.deaths)
         .addField("Deaths Today", val.todayDeaths)
