@@ -6,7 +6,7 @@ api.settings({
 });
 module.exports = {
   name: "covid",
-  description: `${process.env.PREFIX} country to get country data or ${process.env.PREFIX} world to get world data`,
+  description: `${process.env.PREFIX}covid {yourcountry} to get country data or ${process.env.PREFIX}covid world to get world data`,
   run: async (client, message, args) => {
     let msg = message.content.split(" ").slice(1);
     let m = msg.join(" ");
