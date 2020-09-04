@@ -29,7 +29,8 @@
     "minecraft-server-util": "^2.2.0",
     "mcpe-ping-fixed": "^0.0.3",
     "mcpe-ping": "^0.0.4",
-    "covid19-stats": "^1.1.0"
+    "covid19-stats": "^1.1.0",
+    "covidapi": "^0.4.3"
 
   },
   "engines": {
