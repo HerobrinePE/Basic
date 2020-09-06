@@ -16,6 +16,7 @@ module.exports = {
     .addField("Global User Count", client.users.size)
     .addField("This Server Membercount", message.guild.memberCount)
     .addField('This Server Channel Count', message.guild.channels.size)
+    .addField("Server Roles", message.guild.roles.size)
     message.channel.send(embed)
             
           
