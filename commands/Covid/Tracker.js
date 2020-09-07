@@ -10,18 +10,16 @@ module.exports = {
   name: "covid",
   aliases: ["corona", "covid19", "c-19"],
   category: "Covid",
-  description: `${process.env.PREFIX}covid country to get your country's data or ${process.env.PREFIX}covid (world, all, worldwide) to get world data`,
+  description: `${process.env.PREFIX}covid country to get your country's data or ${process.env.PREFIX}covid (world, worldwide) to get world data`,
   run: async (client, message, args) => {
     let msg = message.content.split(" ").slice(1);
     let r = msg.join(" ");
     let usr = message.author;
-    let m = r
+    let m = args[0]
     if (!r) return error();
-    if (r.toLowerCase() === "world") {
+    if (m.toLowerCase() === "world") {
       all();
-    } else if (r.toLowerCase() === "worldwide") {
-      all();
-    } else if (r.toLowerCase === "all") {
+    } else if (m.toLowerCase() === "worldwide") {
       all();
     } else {
       other();
@@ -63,7 +61,7 @@ module.exports = {
     }
 
     function other() {
-      api.countries({ country: m.toLowerCase() }).then(val => {
+      api.countries({ country: r.toLowerCase() }).then(val => {
         if (!val.countryInfo) return error();
         let embed = new RichEmbed()
           .setThumbnail(val.countryInfo.flag)
