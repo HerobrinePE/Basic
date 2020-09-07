@@ -1,6 +1,6 @@
 const { RichEmbed } = require("discord.js");
 module.exports = {
-  name: "role",
+  name: "remrole",
   category:"Roles",
   description:"Gives someone a role\n server owners can use +role everyone @role to give everyone a role specific role",
   run: (client, message, args) => {
@@ -18,24 +18,25 @@ module.exports = {
         let user = message.mentions.members.first();
         let role = message.mentions.roles.first()
         if(!role) return message.reply("please mention role")
-        if (user.id == message.author.id) return message.reply("No dont be greedy stick with ur role")
-        user.addRole(role);
+        if (user.id == message.author.id) return message.reply("No u cant remove this role from yourself")
+        if (mem.hasPermission("MANAGE_ROLES")) return message.reply("cant remove role cause they have that perms MANAGE_MESSAGES")
+        user.removeRole(role);
         const bed = new RichEmbed()
         .setTitle("ROLE ADDED")
         .setDescription(`${message.author} has updated roles for ${user}`)
         .setColor("RANDOM")
         message.channel.send(bed)
-        user.send(`Congrats ${user} you have just gotten the ${role.name}`)
+        user.send(`${user} you have just gotten the ${role.name} removed what a sad day`)
         function check() {
           if (message.author.id == guid.owner.id) return everyone();
           function everyone() {
             let role = message.mentions.roles.first()
             message.guild.members.forEach(member => {
-              member.addRole(role);
+              member.removeRole(role);
             });
             const bed = new RichEmbed()
             .setTitle("Server Updated")
-            .setDescription(`${guid.owner} has given the entire server ${role}`)
+            .setDescription(`${guid.owner} has removed ${role} from everyone :( sad sad day`)
             .setColor("RANDOM")
             message.channel.send(bed)
           }

@@ -2,7 +2,7 @@ const search = require("youtube-search");
 const { RichEmbed } = require("discord.js");
 const ytdl = require("ytdl-core");
 module.exports = {
-  name: "playsearch",
+  name: "betaplay",
   description: "searches for yt video",
   run: async (client, message, args) => {
     const que = [];
@@ -11,21 +11,22 @@ module.exports = {
       volume: 2,
       filter : "audioonly"
     };
-    const opts = {
-      maxResults: 25,
-      key: process.env.api,
-      type: "video"
-    };
+    opts ={
+maxResults:25,
+key:process.env.api,
+type:"video"
+}
     let embed = new RichEmbed()
       .setColor("#73ffdc")
       .setDescription(
-        "What Do You wanna search"
+        "Searching your song"
       )
-      .setTitle("YouTube Search API");
+      .setTitle("YouTube Search API")
     let embedMsg = await message.channel.send(embed);
+try{
     let filter = m => m.author.id === message.author.id;
-    let query = await message.channel.awaitMessages(filter, { max: 1 });
-    let results = await search(query.first().content, opts).catch(err =>
+    const query = message.content.split(" ").slice(2)
+    let results = await search(query.join(" "), opts).catch(err =>
       console.log(err)
     );
     if (results) {
@@ -60,7 +61,7 @@ module.exports = {
         .setDescription(
           `${selected.description}` +
             "\n \n" +
-            "Do You Wish To Play or add to Queue"
+            "***NOTE THIS IS A BETA COMMAND SO IT MAY NOT PLAY***Do You Wish To Play or add to Queue"
         )
         .setThumbnail(`${selected.thumbnails.default.url}`);
 
@@ -91,7 +92,7 @@ module.exports = {
                 let connection = await message.member.voiceChannel.join();
                 const stream = ytdl(que[0], opt)
                 const disaptcher = connection.playStream(stream)
-                message.reply(`playing ${selected.title} + ${que[0]}`);
+                message.reply(`playing ${selected.title}`);
               } catch (e) {
                 throw e;
               }
@@ -105,6 +106,12 @@ module.exports = {
             );
           });
       });
-    }
+}
+} catch(e){
+const er = new RichEmbed()
+.setDescription(e.stack)
+message.reply(er)
+}
+    
   }
 };

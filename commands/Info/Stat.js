@@ -16,10 +16,8 @@ module.exports = {
     .addField("Global User Count", client.users.size)
     .addField("This Server Membercount", message.guild.memberCount)
     .addField('This Server Channel Count', message.guild.channels.size)
-    .addField('This Server Role Count', message.guild.roles.size+"\n || ||")
-    .addField("\n \n<a:Fire:514567641449627648> Support by Subbing <a:Fire:514567641449627648>", "[Subscribe to Rainbowed](https://www.youtube.com/channel/UCGEzUyVKGktUkSkEasBwDeQ)")
-    .addField("<a:Fire:514567641449627648> Support by Following <a:Fire:514567641449627648>", "[Follow Rainbowed on Twitter](https://twitter.com/RainbowStevePE)")
- message.channel.send(embed)
+    .addField("Server Roles", message.guild.roles.size)
+    message.channel.send(embed)
             
           
         }

@@ -69,18 +69,6 @@ client.on("message", message => {
 message.reply(`Here is my invite link`+"\n https://discord.com/api/oauth2/authorize?client_id=606109109837758474&permissions=8&scope=bot")
 });
 
-client.on("guildCreate", guild => {
-  setTimeout(function() {
-    client.delete();
-    client.login(process.env.TOKEN);
-  }, 3000);
-});
-client.on("guildDelete", guild => {
-  setTimeout(function() {
-    client.delete();
-    client.login(process.env.TOKEN);
-  }, 3000);
-});
 
 client.on("message", message =>{
   if(message.channel.type === "dm"){
