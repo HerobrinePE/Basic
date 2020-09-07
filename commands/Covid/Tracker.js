@@ -13,9 +13,9 @@ module.exports = {
   description: `${process.env.PREFIX}covid country to get your country's data or ${process.env.PREFIX}covid (world, all, worldwide) to get world data`,
   run: async (client, message, args) => {
     let msg = message.content.split(" ").slice(1);
-    let m = msg.join(" ");
+    let r = msg.join(" ");
     let usr = message.author;
-    let r = args[0];
+    let m = r
     if (!r) return error();
     if (r.toLowerCase() === "world") {
       all();
