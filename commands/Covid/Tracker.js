@@ -15,7 +15,7 @@ module.exports = {
     let msg = message.content.split(" ").slice(1);
     let r = msg.join(" ");
     let usr = message.author;
-    let m = args[0]
+    let m = r
     if (!r) return error();
     if (m.toLowerCase() === "world") {
       all();
@@ -61,7 +61,7 @@ module.exports = {
     }
 
     function other() {
-      api.countries({ country: r.toLowerCase() }).then(val => {
+      api.countries({ country: m.toLowerCase() }).then(val => {
         if (!val.countryInfo) return error();
         let embed = new RichEmbed()
           .setThumbnail(val.countryInfo.flag)
