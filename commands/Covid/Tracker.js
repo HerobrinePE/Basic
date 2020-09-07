@@ -1,5 +1,7 @@
 const { RichEmbed } = require("discord.js");
 const api = require("covidapi");
+var facts = require("covid-facts");
+
 api.settings({
   baseUrl:
     "https://disease.sh" | "https://api.caw.sh" | "https://corona.lmao.ninja"
@@ -10,17 +12,21 @@ module.exports = {
   name: "covid",
   aliases: ["corona", "covid19", "c-19"],
   category: "Covid",
-  description: `${process.env.PREFIX}covid country to get your country's data or ${process.env.PREFIX}covid (world, worldwide) to get world data`,
+  description: `${process.env.PREFIX}covid country to get your country's data or ${process.env.PREFIX}covid (world, worldwide) to get world data or ${process.env.PREFIX}covid {fact, facts} to get random facts about covid`,
   run: async (client, message, args) => {
     let msg = message.content.split(" ").slice(1);
     let r = msg.join(" ");
     let usr = message.author;
-    let m = r
+    let m = r;
     if (!r) return error();
     if (m.toLowerCase() === "world") {
       all();
     } else if (m.toLowerCase() === "worldwide") {
       all();
+    } else if (r.toLowerCase() === "fact") {
+      fact();
+    } else if (r.toLowerCase() === "facts") {
+      fact();
     } else {
       other();
     }
@@ -89,6 +95,15 @@ module.exports = {
         message.channel.send(embed);
         console.log(val);
       });
+    }
+    function fact() {
+      var allFacts = facts.all;
+      var randomFact = facts.random();
+      const fEmbed = new RichEmbed()
+        .setTitle("📖Random Covid-19 Facts📖")
+        .setDescription(randomFact)
+        .setColor("RANDOM");
+      message.channel.send(fEmbed)
     }
   }
 };
