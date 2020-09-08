@@ -103,7 +103,7 @@ module.exports = {
         .setTitle("📖Random Covid-19 Facts📖")
         .setDescription(randomFact)
         .setColor("RANDOM")
-        .addField("Module", "[covid-facts](https://www.npmjs.com/package/covid-facts)")
+        .addField("Coding NodeJS \n Module/Package used to generate the facts", "[covid-facts](https://www.npmjs.com/package/covid-facts)")
       message.channel.send(fEmbed)
     }
   }
