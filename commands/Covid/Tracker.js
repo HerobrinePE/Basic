@@ -101,7 +101,7 @@ module.exports = {
       var randomFact = facts.random();
       const fEmbed = new RichEmbed()
         .setTitle("📖Random Covid-19 Facts📖")
-        .setDescription(randomFact)
+        .setDescription("==\n"+randomFact+"\n==")
         .setColor("RANDOM")
         .addField("Coding NodeJS\nModule/Package used to generate the facts", "[covid-facts](https://www.npmjs.com/package/covid-facts)")
       message.channel.send(fEmbed)
