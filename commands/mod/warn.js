@@ -51,7 +51,7 @@ module.exports = {
 
   .setColor("#fc6400")
 
-  .addField("Warned User", `${wUser.username} | ${wUser.id}`)
+  .addField("Warned User", `${wUser} | ${wUser.id}`)
 
   .addField("Warned In", message.channel)
 
