@@ -6,7 +6,7 @@ let __BLUE__ = "#00FFFF";
 module.exports = {
   name: "weather",
   category: "weather",
-  description: `${process.env.PREFIX}covid country to get your country's data or ${process.env.PREFIX}covid (world, worldwide) to get world data or ${process.env.PREFIX}covid {fact, facts} to get random facts about covid`,
+  description: `Some countries like USA or Philippines you need to use your city or state`,
   run: async (client, message, args) => {
     let msg = message.content.split(" ").slice(1);
     let r = msg.join(" ");
