@@ -93,15 +93,14 @@ client.on("message", message => {
       message.reply("killing process for 1 mins")
 client.destroy(process.env.TOKEN)
     setTimeout(()=>{
+message.reply("stopping for 1 min")
       client.login(process.env.TOKEN)
-var guildList = client.guilds.array();
         try {
-            guildList.forEach(guild => guild.defaultChannel.send("Client Updated as a server counter protocol if you see this message ignore it it will bot happen again"));
+            client.guilds.forEach(guild => guild.defaultChannel.send("Client Updated as a server counter protocol if you see this message ignore it it will bot happen again"));
         } catch (err) {
             console.log("Could not send message to " + guild.name);
         }
-      }, ms("1m"))
-
+      }, 60000)
     }
     
   }
