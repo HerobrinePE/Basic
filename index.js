@@ -95,11 +95,6 @@ client.destroy(process.env.TOKEN)
     setTimeout(()=>{
 message.reply("stopping for 1 min")
       client.login(process.env.TOKEN)
-        try {
-            client.guilds.forEach(guild => guild.defaultChannel.send("Client Updated as a server counter protocol if you see this message ignore it it will bot happen again"));
-        } catch (err) {
-            console.log("Could not send message to " + guild.name);
-        }
       }, 60000)
     }
     
