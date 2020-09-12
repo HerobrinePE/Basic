@@ -91,7 +91,7 @@ client.on("message", message => {
     function off(){
       if (!message.author.id == "475435277444186114") return message.reply("no");
       message.reply("killing process for 1 mins")
-client.destroy()
+client.destroy(process.env.TOKEN)
     setTimeout(()=>{
       client.login(process.env.TOKEN)
       message.defaultChannel.send("Client Updated As A server count protocol")
