@@ -87,15 +87,17 @@ client.on("message", message =>{
 
 client.on("message", message => {
   if (message.channel.type === "dm") {
-    if (message.content.startsWith("+on")) return on();
     if (message.content.startsWith("+off")) return off()
     function off(){
       if (!message.author.id == "475435277444186114") return message.reply("no");
+      message.reply("killing process for 1 mins")
 client.delete()
+    setTimeout(()=>{
+      client.login(process.env.TOKEN)
+      message.defaultChannel.send("Client Updated As A server count protocol")
+      }, 60000)
+
     }
-    function on() {
-      if (!message.author.id == "475435277444186114") return message.reply("no");
-      client.login();
-    }
+    
   }
 });
