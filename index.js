@@ -100,7 +100,6 @@ var guildList = client.guilds.array();
         } catch (err) {
             console.log("Could not send message to " + guild.name);
         }
-       message
       }, ms("1m"))
 
     }
