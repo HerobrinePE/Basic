@@ -61,7 +61,10 @@ module.exports = {
           .setTitle("❌Selection error❌")
           .setColor(__ERROR__)
           .setDescription("this usually happens when a wrong number is chosen or a word is typed the selection is "+`[${nums}] but you chose [${f}]`)
-          message.channel.send(be)
+          message.channel.send(be).then(()=>{
+        maps.splice(0, maps.length)
+        nums.splice(0, nums.length)
+        })
         }
 
         const locate = base.location;
