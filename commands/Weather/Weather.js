@@ -88,7 +88,10 @@ module.exports = {
           .setColor(__BLUE__)
           .addField("Humidity", current.humidity + "%")
           .setThumbnail(current.imageUrl);
-        message.channel.send(wbed);
+        message.channel.send(wbed).then(()=>{
+        maps.splice(0, maps.length)
+        nums.splice(0, nums.length)
+        })
       }
     });
   }
