@@ -8,16 +8,16 @@ module.exports = {
   run: async (client, message, args) => {
     const subReddits = [
       "dankmeme",
-      "cursed_meme",
       "meme",
       "me_irl",
-      "minecraft",
-      "cursed_minecraft"
+      "minecraft_memes",
+      "blursedimages"
     ];
     const random = subReddits[Math.floor(Math.random() * subReddits.length)];
     RedditSimple.RandomPost(random)
       .then(res => {
         let val = res[0];
+      console.log(val)
         const bex = new RichEmbed()
           .setColor("RANDOM")
           .setImage(val.data.url)
