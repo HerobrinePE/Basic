@@ -1,21 +1,33 @@
 const { RichEmbed } = require("discord.js");
-const randomPuppy = require("random-puppy");
+const { RedditSimple } = require("reddit-simple");
 
 module.exports = {
-    name: "meme",
-    category: "Fun",
-    description: "Sends an epic meme",
-    run: async (client, message, args) => {
-        const subReddits = ["dankmeme", "meme", "me_irl"];
-        const random = subReddits[Math.floor(Math.random() * subReddits.length)];
+  name: "meme",
+  category: "Fun",
+  description: "Sends an epic meme",
+  run: async (client, message, args) => {
+    const subReddits = [
+      "dankmeme",
+      "cursed_meme",
+      "meme",
+      "me_irl",
+      "minecraft",
+      "cursed_minecraft"
+    ];
+    const random = subReddits[Math.floor(Math.random() * subReddits.length)];
+    RedditSimple.RandomPost(random)
+      .then(res => {
+        let val = res[0];
+        const bex = new RichEmbed()
+          .setColor("RANDOM")
+          .setImage(val.data.url)
+          .setTitle("from " + val.data.subreddit_name_prefixed)
+          .setURL(val.data.url);
+        message.channel.send(bex);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+};
 
-        const img = await randomPuppy(random);
-        const embed = new RichEmbed()
-            .setColor("RANDOM")
-            .setImage(img)
-            .setTitle(`From /r/${random}`)
-            .setURL(`https://reddit.com/r/${random}`);
-
-        message.channel.send(embed);
-    }
-}
