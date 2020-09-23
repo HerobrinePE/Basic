@@ -10,24 +10,44 @@ module.exports = {
       "dankmeme",
       "meme",
       "me_irl",
-      "minecraft_memes",
-      "blursedimages"
+      "blursedimages",
+      "cursedimages"
     ];
-    const random = subReddits[Math.floor(Math.random() * subReddits.length)];
-    RedditSimple.RandomPost(random)
-      .then(res => {
+    if (args[0] == "search") {
+      let mesg = message.content.split(" ").slice(2);
+      let meme = mesg.join(" ");
+      RedditSimple.RandomPost(meme).then(res => {
         let val = res[0];
-      console.log(val)
         const bex = new RichEmbed()
-          .setColor("RANDOM")
-          .setImage(val.data.url)
-          .setTitle("from " + val.data.subreddit_name_prefixed)
-          .setURL(val.data.url);
-        message.channel.send(bex);
+            .setColor("RANDOM")
+            .setImage(val.data.url)
+            .setTitle("from " + val.data.subreddit_name_prefixed)
+            .setURL(val.data.url);
+          message.channel.send(bex);
+      }).catch(e=>{ 
+      const bex = new RichEmbed()
+          .setTitle("OOPS")
+      .setColor("#FF6000")
+          .setDescription(`your search **${meme}** was not found error because of {${e}}`)
+          message.channel.send(bex)
+
       })
-      .catch(e => {
-        console.log(e);
-      });
+    } else {
+      const random = subReddits[Math.floor(Math.random() * subReddits.length)];
+      RedditSimple.RandomPost(random)
+        .then(res => {
+          let val = res[0];
+          console.log(val);
+          const bex = new RichEmbed()
+            .setColor("RANDOM")
+            .setImage(val.data.url)
+            .setTitle("from " + val.data.subreddit_name_prefixed)
+            .setURL(val.data.url);
+          message.channel.send(bex);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
   }
 };
-
