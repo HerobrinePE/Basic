@@ -34,7 +34,8 @@
     "covid-facts": "^1.0.1",
     "weather-js": "^2.0.0",
     "reddit-simple": "^1.1.0",
-    "jimp": "^0.16.1"
+    "jimp": "^0.16.1",
+    "@jimp/plugin-fisheye": "^0.16.1"
   },
   "engines": {
     "node": "10.x"
