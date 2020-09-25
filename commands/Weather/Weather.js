@@ -7,7 +7,7 @@ let maps = [];
 let nums = []
 module.exports = {
   name: "weather",
-  category: "weather",
+  category: "Weather",
   description: `Some countries like USA or Philippines you need to use your city or state`,
   run: (client, message, args) => {
     const msg = message.content.split(" ").slice(1);
