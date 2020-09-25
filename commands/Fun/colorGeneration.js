@@ -4,7 +4,7 @@ const fs = require("fs");
 module.exports = {
   name: "discolor",
   category: "Fun",
-  description: "Inverts users image",
+  description: "messes with a users image color and discolors it",
   run: async (client, message, args) => {
     let usr = message.mentions.users.first();
     let aut = message.author;
