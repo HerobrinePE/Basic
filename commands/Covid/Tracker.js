@@ -1,7 +1,9 @@
-const { RichEmbed } = require("discord.js");
 const api = require("covidapi");
-var facts = require("covid-facts");
-
+const facts = require("covid-facts");
+const canvas = require("canvas");
+const random = facts.random();
+const { MessageAttachment } = require("discord.js");
+api.all().then(console.log);
 api.settings({
   baseUrl:
     "https://disease.sh" | "https://api.caw.sh" | "https://corona.lmao.ninja"
@@ -13,16 +15,49 @@ module.exports = {
   aliases: ["corona", "covid19", "c-19"],
   category: "Covid",
   description: `${process.env.PREFIX}covid country to get your country's data or ${process.env.PREFIX}covid (world, worldwide) to get world data or ${process.env.PREFIX}covid {fact, facts} to get random facts about covid`,
-  run: async (client, message, args) => {
+  run: async (client, message, args, MessageEmbed) => {
     let msg = message.content.split(" ").slice(1);
     let r = msg.join(" ");
     let usr = message.author;
     let m = r;
-    if (!r) return error();
-    if (m.toLowerCase() === "world") {
-      all();
-    } else if (m.toLowerCase() === "worldwide") {
-      all();
+    if (!r) return message.reply("Please Type in a country name");
+
+    async function test(val) {
+      const cvs = canvas.createCanvas(920, 200);
+      const ctx = cvs.getContext("2d");
+      const bg = await canvas.loadImage(
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDTj4pJ5sQ5d-JNg9EnkrmsD6IauVmghb5fg&usqp=CAU"
+      );
+      ctx.drawImage(bg, 0, 0, cvs.width, cvs.height);
+      const avatar = await canvas.loadImage(val.countryInfo.flag);
+      ctx.drawImage(avatar, 0, 0, 300, cvs.height);
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 32px sans-serif";
+      ctx.fillText(
+        `${val.countryInfo.iso2} |Population: ${val.population}|
+Cases: ${val.cases}    |Today: ${val.todayCases}|
+Deaths: ${val.deaths}    |Today: ${val.todayDeaths}|
+Recoveries: ${val.recovered} 
+Active: ${val.active}
+`,
+        312,
+        30
+      );
+      const ach = new MessageAttachment(cvs.toBuffer(), "result.png");
+      message.channel.send(random, ach);
+    }
+    if (m.toLowerCase() === "global") {
+      api.all().then(async val => {
+        const can = canvas.createCanvas(800, 280);
+        const ctx = can.getContext("2d");
+        const globe = await canvas.loadImage(" ")
+        ctx.drawImage(globe ,0,0,300,300)
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "bold 32px sans-serif";
+        ctx.fillText("text", 300, 50);
+        const attach = new MessageAttachment(can.toBuffer(), "global.png");
+        message.channel.send(random, attach);
+      });
     } else if (r.toLowerCase() === "fact") {
       fact();
     } else if (r.toLowerCase() === "facts") {
@@ -30,34 +65,8 @@ module.exports = {
     } else {
       other();
     }
-    function all() {
-      api.all().then(val => {
-        console.log(val);
-        const bed = new RichEmbed()
-          .setColor(__R__)
-          .setTitle("☣Covid WorldWide☣")
-          .addField("API Updates per usage", val.updated)
-          .addField("Earths Population", val.population)
-          .setColor("#FF0000")
-          .addField("Cases Today", val.todayCases)
-          .addField("Total Cases", val.cases)
-          .addField("Deaths", val.deaths)
-          .addField("Deaths Today", val.todayDeaths)
-          .addField("Recoveries", val.recovered)
-          .addField("Recoveries today", val.todayRecovered)
-          .addField("Test Done", val.tests)
-          .addField("Active", val.active)
-          .addField("Critical Condition", val.critical)
-          .addField(
-            "Coding NodeJS",
-            "package used on this command [covidapi](https://www.npmjs.com/package/covidapi)"
-          );
-
-        message.channel.send(bed);
-      });
-    }
     function error() {
-      const errorbed = new RichEmbed()
+      const errorbed = new MessageEmbed()
         .setColor(__ERROR__)
         .setTitle(`⚠️It seems ive ran into an error⚠️`)
         .setDescription(
@@ -69,42 +78,21 @@ module.exports = {
     function other() {
       api.countries({ country: m.toLowerCase() }).then(val => {
         if (!val.countryInfo) return error();
-        let embed = new RichEmbed()
-          .setThumbnail(val.countryInfo.flag)
-          .setTitle(
-            "☣Covid " +
-              `[${val.country}] [${val.countryInfo.iso2}] [${val.countryInfo.iso3}] ` +
-              "☣"
-          )
-          .setColor(__R__)
-          .addField("Api Updates Per Usage", val.updated)
-          .addField("Population", val.population)
-          .addField("Cases Today", val.todayCases)
-          .addField("Total Cases", val.cases)
-          .addField("Test Done", val.tests)
-          .addField("Deaths", val.deaths)
-          .addField("Deaths Today", val.todayDeaths)
-          .addField("Recoveries", val.recovered)
-          .addField("Recoveries today", val.todayRecovered)
-          .addField("Active", val.active)
-          .addField("Critical", val.critical)
-          .addField(
-            "Coding NodeJS",
-            "package used on this command [covidapi](https://www.npmjs.com/package/covidapi)"
-          );
-        message.channel.send(embed);
-        console.log(val);
+        test(val);
       });
     }
     function fact() {
       var allFacts = facts.all;
       var randomFact = facts.random();
-      const fEmbed = new RichEmbed()
+      const fEmbed = new MessageEmbed()
         .setTitle("📖Random Covid-19 Facts📖")
-        .setDescription("==\n"+randomFact+"\n==")
+        .setDescription("==\n" + randomFact + "\n==")
         .setColor("RANDOM")
-        .addField("Coding NodeJS\nModule/Package used to generate the facts", "[covid-facts](https://www.npmjs.com/package/covid-facts)")
-      message.channel.send(fEmbed)
+        .addField(
+          "Coding NodeJS\nModule/Package used to generate the facts",
+          "[covid-facts](https://www.npmjs.com/package/covid-facts)"
+        );
+      message.channel.send(fEmbed);
     }
   }
 };
